@@ -15,6 +15,74 @@ type EmailOtpGateProps = {
   codeHeading?: string;
 };
 
+type PersistedOtpDraft = {
+  step: 'email' | 'code';
+  email: string;
+  code: string[];
+  resendCountdown: number;
+  devCode: string;
+  infoMessage: string;
+};
+
+const OTP_DRAFT_PREFIX = 'evently_auth_gate_draft';
+
+function getOtpDraftKey(redirectPath: string, forceVerification: boolean) {
+  return `${OTP_DRAFT_PREFIX}:${forceVerification ? 'force' : 'login'}:${encodeURIComponent(redirectPath)}`;
+}
+
+function readOtpDraft(key: string): PersistedOtpDraft | null {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
+  const raw = window.sessionStorage.getItem(key);
+  if (!raw) {
+    return null;
+  }
+
+  try {
+    const parsed = JSON.parse(raw) as Partial<PersistedOtpDraft>;
+    const email = typeof parsed.email === 'string' ? parsed.email : '';
+    const code = Array.isArray(parsed.code)
+      ? parsed.code.slice(0, 6).map((digit) => String(digit || '').slice(0, 1))
+      : ['', '', '', '', '', ''];
+    const resendCountdownValue = Number(parsed.resendCountdown);
+
+    if (!email && code.every((digit) => !digit)) {
+      return null;
+    }
+
+    return {
+      step: parsed.step === 'code' ? 'code' : 'email',
+      email,
+      code: Array.from({ length: 6 }, (_, index) => code[index] || ''),
+      resendCountdown: Number.isFinite(resendCountdownValue)
+        ? Math.max(0, Math.floor(resendCountdownValue))
+        : 0,
+      devCode: typeof parsed.devCode === 'string' ? parsed.devCode : '',
+      infoMessage: typeof parsed.infoMessage === 'string' ? parsed.infoMessage : '',
+    };
+  } catch {
+    return null;
+  }
+}
+
+function writeOtpDraft(key: string, draft: PersistedOtpDraft) {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  window.sessionStorage.setItem(key, JSON.stringify(draft));
+}
+
+function clearOtpDraft(key: string) {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  window.sessionStorage.removeItem(key);
+}
+
 export default function EmailOtpGate({
   redirectPath,
   forceVerification = false,
@@ -35,6 +103,8 @@ export default function EmailOtpGate({
   const { requestLoginOtp, verifyLoginOtp, user, loading: authLoading } = useAuth();
   const router = useRouter();
   const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
+  const draftStorageKey = getOtpDraftKey(redirectPath, forceVerification);
+  const [draftReady, setDraftReady] = useState(false);
 
   useEffect(() => {
     document.body.classList.add('hide-nav');
@@ -48,6 +118,19 @@ export default function EmailOtpGate({
   }, [authLoading, forceVerification, redirectPath, router, user]);
 
   useEffect(() => {
+    const draft = readOtpDraft(draftStorageKey);
+    if (draft) {
+      setStep(draft.step);
+      setEmail(draft.email);
+      setCode(draft.code);
+      setResendCountdown(draft.resendCountdown);
+      setDevCode(draft.devCode);
+      setInfoMessage(draft.infoMessage);
+    }
+    setDraftReady(true);
+  }, [draftStorageKey]);
+
+  useEffect(() => {
     if (resendCountdown <= 0) {
       return;
     }
@@ -58,6 +141,36 @@ export default function EmailOtpGate({
 
     return () => window.clearTimeout(timer);
   }, [resendCountdown]);
+
+  useEffect(() => {
+    if (!draftReady) {
+      return;
+    }
+
+    const nextDraft: PersistedOtpDraft = {
+      step,
+      email,
+      code,
+      resendCountdown,
+      devCode,
+      infoMessage,
+    };
+
+    const hasContent =
+      nextDraft.email.trim().length > 0 ||
+      nextDraft.step === 'code' ||
+      nextDraft.code.some((digit) => digit) ||
+      nextDraft.resendCountdown > 0 ||
+      nextDraft.devCode.length > 0 ||
+      nextDraft.infoMessage.length > 0;
+
+    if (!hasContent) {
+      clearOtpDraft(draftStorageKey);
+      return;
+    }
+
+    writeOtpDraft(draftStorageKey, nextDraft);
+  }, [code, devCode, draftReady, draftStorageKey, email, infoMessage, resendCountdown, step]);
 
   const joinedCode = code.join('');
   const enterCodeCopy = devCode
@@ -148,6 +261,7 @@ export default function EmailOtpGate({
         return;
       }
 
+      clearOtpDraft(draftStorageKey);
       router.push(redirectPath);
     } finally {
       setLoading(false);
@@ -249,10 +363,14 @@ export default function EmailOtpGate({
         {step === 'code' && (
           <button
             onClick={() => {
+              clearOtpDraft(draftStorageKey);
               setStep('email');
+              setEmail('');
               setError('');
               setInfoMessage('');
               setCode(['', '', '', '', '', '']);
+              setResendCountdown(0);
+              setDevCode('');
             }}
             style={backButtonStyle}
           >

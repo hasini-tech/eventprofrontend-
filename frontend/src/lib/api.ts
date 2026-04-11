@@ -40,7 +40,12 @@ function getStoredUser() {
 
 function isAuthEndpoint(config: any) {
   const url = String(config?.url || '');
-  return url.includes('/users/login') || url.includes('/users/signup');
+  return (
+    url.includes('/users/login') ||
+    url.includes('/users/signup') ||
+    url.includes('/users/otp/request') ||
+    url.includes('/users/otp/verify')
+  );
 }
 
 api.interceptors.request.use((config) => {
