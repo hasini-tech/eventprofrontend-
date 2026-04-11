@@ -125,7 +125,7 @@ export default function CheckInScanner() {
             value={manualTicketRef}
             onChange={(e) => setManualTicketRef(e.target.value.toUpperCase())}
             placeholder="e.g. EVTLY-ABC123XY"
-            style={{ flex: 1, padding: '14px', background: 'var(--bg-color)', border: '1px solid var(--border-color)', borderRadius: '8px', color: 'white', fontSize: '16px', fontFamily: 'monospace' }}
+            style={{ flex: 1, padding: '14px', background: 'var(--bg-color)', border: '1px solid var(--border-color)', borderRadius: '8px', color: 'white', fontSize: '16px', fontFamily: 'inherit' }}
           />
           <button 
             type="submit" 

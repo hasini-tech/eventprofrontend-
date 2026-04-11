@@ -1845,7 +1845,7 @@ function SettingsTab({
 
           <div style={panelStyle}>
             <div style={{ fontSize: '1rem', fontWeight: 800, color: '#111827', marginBottom: 12 }}>Code to Copy</div>
-            <textarea readOnly value={embedCode} rows={7} style={{ ...fieldStyle, paddingTop: 12, fontFamily: 'monospace', resize: 'vertical' }} />
+            <textarea readOnly value={embedCode} rows={7} style={{ ...fieldStyle, paddingTop: 12, fontFamily: 'inherit', resize: 'vertical' }} />
           </div>
         </div>
       );
