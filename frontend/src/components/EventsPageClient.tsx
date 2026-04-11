@@ -408,34 +408,38 @@ function EmptyState({ tab, personalMode }: { tab: EventsTab; personalMode: boole
     <div
       className="surface-panel"
       style={{
-        borderRadius: '30px',
-        padding: '56px 24px',
+        borderRadius: '24px',
+        padding: '40px 18px',
         textAlign: 'center',
         background: 'linear-gradient(180deg, rgba(255,255,255,0.98), rgba(244,251,251,0.96))',
       }}
     >
       <div
         style={{
-          width: '94px',
-          height: '94px',
-          margin: '0 auto 22px',
-          borderRadius: '28px',
+          width: '78px',
+          height: '78px',
+          margin: '0 auto 16px',
+          borderRadius: '22px',
           background: 'var(--primary-soft)',
           color: 'var(--primary-color)',
           display: 'grid',
           placeItems: 'center',
         }}
       >
-        <Sparkles size={34} />
+        <Sparkles size={28} />
       </div>
-      <h2 style={{ margin: '0 0 12px', fontSize: '2rem', letterSpacing: '-0.04em' }}>{heading}</h2>
-      <p style={{ margin: 0, fontSize: '1.03rem', color: 'var(--text-secondary)', maxWidth: '520px', marginInline: 'auto' }}>
+      <h2 style={{ margin: '0 0 10px', fontSize: '1.55rem', letterSpacing: '-0.04em' }}>{heading}</h2>
+      <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', maxWidth: '520px', marginInline: 'auto' }}>
         {description}
       </p>
       {tab === 'upcoming' && personalMode && (
-        <div style={{ marginTop: '28px' }}>
-          <Link href="/create-event" className="primary-button">
-            <Plus size={18} />
+        <div style={{ marginTop: '20px' }}>
+          <Link
+            href="/create-event"
+            className="primary-button"
+            style={{ minHeight: '40px', padding: '0 16px', borderRadius: '12px', fontSize: '0.9rem' }}
+          >
+            <Plus size={16} />
             Create Event
           </Link>
         </div>
@@ -448,9 +452,9 @@ function EventCover({ event }: { event: EventRecord }) {
   return (
     <div
       style={{
-        width: '124px',
-        height: '124px',
-        borderRadius: '22px',
+        width: '102px',
+        height: '102px',
+        borderRadius: '18px',
         overflow: 'hidden',
         border: '1px solid var(--border-color)',
         background: 'var(--teal-050)',
@@ -472,21 +476,21 @@ function Timeline({
   groups: EventGroup[];
 }) {
   return (
-    <div style={{ display: 'grid', gap: '34px' }}>
+    <div style={{ display: 'grid', gap: '24px' }}>
       {groups.map((group) => (
         <div
           key={group.key}
           style={{
             display: 'grid',
-            gridTemplateColumns: 'minmax(110px, 150px) 1fr',
+            gridTemplateColumns: 'minmax(96px, 128px) 1fr',
             gap: '0',
             alignItems: 'start',
           }}
         >
-          <div style={{ paddingRight: '18px' }}>
+          <div style={{ paddingRight: '14px' }}>
             <div
               style={{
-                fontSize: '2rem',
+                fontSize: '1.5rem',
                 fontWeight: 800,
                 color: 'var(--primary-color)',
                 marginBottom: '2px',
@@ -495,7 +499,7 @@ function Timeline({
             >
               {group.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
             </div>
-            <div style={{ color: 'var(--text-tertiary)', fontSize: '1rem', fontWeight: 700 }}>
+            <div style={{ color: 'var(--text-tertiary)', fontSize: '0.84rem', fontWeight: 700 }}>
               {group.date.toLocaleDateString('en-US', { weekday: 'long' })}
             </div>
           </div>
@@ -504,8 +508,8 @@ function Timeline({
             style={{
               position: 'relative',
               display: 'grid',
-              gap: '18px',
-              paddingLeft: '32px',
+              gap: '14px',
+              paddingLeft: '24px',
               borderLeft: '1px solid rgba(14,118,120,0.14)',
             }}
           >
@@ -521,40 +525,40 @@ function Timeline({
                   <div
                     style={{
                       position: 'absolute',
-                      left: '-39px',
-                      top: '28px',
-                      width: '14px',
-                      height: '14px',
+                      left: '-31px',
+                      top: '20px',
+                      width: '12px',
+                      height: '12px',
                       borderRadius: '50%',
                       background: 'var(--primary-color)',
-                      boxShadow: '0 0 0 5px rgba(244,251,251,1)',
+                      boxShadow: '0 0 0 4px rgba(244,251,251,1)',
                     }}
                   />
 
                   <div
                     className="surface-panel"
                     style={{
-                      borderRadius: '28px',
-                      padding: '22px',
+                      borderRadius: '22px',
+                      padding: '16px',
                       display: 'grid',
                       gridTemplateColumns: '1fr auto',
-                      gap: '22px',
+                      gap: '16px',
                       background:
                         'linear-gradient(180deg, rgba(255,255,255,0.98), rgba(244,251,251,0.96))',
                     }}
                   >
-                    <div style={{ display: 'grid', gap: '12px' }}>
+                    <div style={{ display: 'grid', gap: '10px' }}>
                       <div
                         style={{
                           display: 'inline-flex',
                           alignItems: 'center',
                           gap: '8px',
-                          padding: '8px 12px',
+                          padding: '6px 10px',
                           borderRadius: '999px',
                           background: 'var(--primary-soft)',
                           color: 'var(--primary-color)',
                           fontWeight: 800,
-                          fontSize: '0.8rem',
+                          fontSize: '0.72rem',
                           width: 'fit-content',
                         }}
                       >
@@ -562,41 +566,45 @@ function Timeline({
                       </div>
 
                       <div>
-                        <div style={{ color: 'var(--text-tertiary)', fontSize: '0.95rem', fontWeight: 700, marginBottom: '6px' }}>
+                        <div style={{ color: 'var(--text-tertiary)', fontSize: '0.82rem', fontWeight: 700, marginBottom: '4px' }}>
                           {formatEventTime(event)}
                         </div>
                         <h3
                           style={{
                             margin: 0,
-                            fontSize: '1.75rem',
+                            fontSize: '1.35rem',
                             fontWeight: 800,
                             color: 'var(--text-primary)',
-                            letterSpacing: '-0.03em',
+                            letterSpacing: '-0.025em',
                           }}
                         >
                           {event.title}
                         </h3>
                       </div>
 
-                      <div style={{ display: 'grid', gap: '8px', color: 'var(--text-secondary)' }}>
+                      <div style={{ display: 'grid', gap: '6px', color: 'var(--text-secondary)' }}>
                         <div style={rowStyle}>
-                          <MapPin size={16} color="var(--primary-color)" />
+                          <MapPin size={14} color="var(--primary-color)" />
                           <span>{event.is_online ? 'Online event' : event.location || 'Location TBA'}</span>
                         </div>
                         <div style={rowStyle}>
                           {isAttending ? (
-                            <Ticket size={16} color="var(--primary-color)" />
+                            <Ticket size={14} color="var(--primary-color)" />
                           ) : (
-                            <Users size={16} color="var(--primary-color)" />
+                            <Users size={14} color="var(--primary-color)" />
                           )}
                           <span>{secondaryMeta}</span>
                         </div>
                       </div>
 
                       <div>
-                        <Link href={actionHref} className="primary-button" style={{ minHeight: '44px' }}>
+                        <Link
+                          href={actionHref}
+                          className="primary-button"
+                          style={{ minHeight: '40px', padding: '0 16px', borderRadius: '12px', fontSize: '0.88rem' }}
+                        >
                           {ownsEvent ? 'Manage Event' : 'View Event'}
-                          <ArrowRight size={16} />
+                          <ArrowRight size={14} />
                         </Link>
                       </div>
                     </div>
@@ -803,13 +811,13 @@ export default function EventsPageClient({
           'radial-gradient(circle at 12% 10%, rgba(14,118,120,0.1), transparent 22%), linear-gradient(180deg, #ffffff 0%, #f5fbfb 100%)',
       }}
     >
-      <section className="page-shell" style={{ paddingTop: '42px', paddingBottom: '90px' }}>
+      <section className="page-shell" style={{ paddingTop: '32px', paddingBottom: '64px' }}>
         <div
           className="surface-panel"
           style={{
-            borderRadius: '32px',
-            padding: '28px',
-            marginBottom: '28px',
+            borderRadius: '26px',
+            padding: '20px',
+            marginBottom: '20px',
             background:
               'linear-gradient(135deg, rgba(14,118,120,0.08), rgba(255,255,255,0.96) 52%, rgba(244,251,251,0.98))',
           }}
@@ -819,20 +827,20 @@ export default function EventsPageClient({
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'flex-end',
-              gap: '18px',
+              gap: '14px',
               flexWrap: 'wrap',
             }}
           >
-            <div style={{ display: 'grid', gap: '10px' }}>
-              <div className="eyebrow" style={{ width: 'fit-content' }}>
-                <CalendarDays size={16} />
+            <div style={{ display: 'grid', gap: '8px' }}>
+              <div className="eyebrow" style={{ width: 'fit-content', padding: '8px 12px', fontSize: '0.8rem' }}>
+                <CalendarDays size={14} />
                 {variant === 'discover' ? 'Discover events' : mode === 'personal' ? 'Your timeline' : 'Event timeline'}
               </div>
               <div>
                 <h1
                   style={{
                     margin: 0,
-                    fontSize: 'clamp(2.6rem, 5vw, 4rem)',
+                    fontSize: 'clamp(2.05rem, 4vw, 3.2rem)',
                     lineHeight: 0.95,
                     fontWeight: 800,
                     color: 'var(--text-primary)',
@@ -843,9 +851,9 @@ export default function EventsPageClient({
                 </h1>
                 <p
                   style={{
-                    margin: '12px 0 0',
+                    margin: '10px 0 0',
                     color: 'var(--text-secondary)',
-                    fontSize: '1.06rem',
+                    fontSize: '0.94rem',
                     fontWeight: 500,
                     maxWidth: '600px',
                   }}
@@ -861,8 +869,8 @@ export default function EventsPageClient({
 
             <div
               style={{
-                padding: '6px',
-                borderRadius: '18px',
+                padding: '4px',
+                borderRadius: '14px',
                 background: 'rgba(255,255,255,0.88)',
                 border: '1px solid var(--border-color)',
                 display: 'inline-flex',
@@ -876,14 +884,14 @@ export default function EventsPageClient({
                     key={tab}
                     onClick={() => setActiveTab(tab)}
                     style={{
-                      padding: '11px 22px',
-                      borderRadius: '14px',
+                      padding: '8px 16px',
+                      borderRadius: '12px',
                       border: active ? '1px solid var(--border-strong)' : '1px solid transparent',
                       background: active ? 'var(--primary-color)' : 'transparent',
                       color: active ? '#ffffff' : 'var(--text-secondary)',
                       fontWeight: 800,
                       cursor: 'pointer',
-                      fontSize: '0.95rem',
+                      fontSize: '0.84rem',
                       boxShadow: active ? '0 12px 24px rgba(14,118,120,0.22)' : 'none',
                       transition: 'all 0.2s ease',
                     }}
@@ -899,13 +907,14 @@ export default function EventsPageClient({
         {error && (
           <div
             style={{
-              marginBottom: '22px',
-              padding: '12px 14px',
-              borderRadius: '16px',
+              marginBottom: '18px',
+              padding: '10px 12px',
+              borderRadius: '12px',
               background: 'rgba(255,244,244,0.96)',
               border: '1px solid rgba(220,38,38,0.14)',
               color: '#b91c1c',
               fontWeight: 600,
+              fontSize: '0.9rem',
             }}
           >
             {error}
@@ -913,8 +922,8 @@ export default function EventsPageClient({
         )}
 
         {loading ? (
-          <div style={{ minHeight: '48vh', display: 'grid', placeItems: 'center', color: 'var(--primary-color)' }}>
-            <Loader2 className="animate-spin" size={40} />
+          <div style={{ minHeight: '42vh', display: 'grid', placeItems: 'center', color: 'var(--primary-color)' }}>
+            <Loader2 className="animate-spin" size={32} />
           </div>
         ) : activeGroups.length === 0 ? (
           <EmptyState tab={activeTab} personalMode={mode === 'personal'} />
@@ -929,7 +938,7 @@ export default function EventsPageClient({
 const rowStyle: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
-  gap: '10px',
-  fontSize: '0.96rem',
+  gap: '8px',
+  fontSize: '0.86rem',
   fontWeight: 600,
 };
