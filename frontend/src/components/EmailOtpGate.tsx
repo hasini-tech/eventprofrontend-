@@ -25,9 +25,70 @@ type PersistedOtpDraft = {
 };
 
 const OTP_DRAFT_PREFIX = 'evently_auth_gate_draft';
+const OTP_DRAFT_TTL_MS = 15 * 60 * 1000;
+
+type PersistedOtpDraftEntry = {
+  savedAt: number;
+  draft: PersistedOtpDraft;
+};
 
 function getOtpDraftKey(redirectPath: string, forceVerification: boolean) {
   return `${OTP_DRAFT_PREFIX}:${forceVerification ? 'force' : 'login'}:${encodeURIComponent(redirectPath)}`;
+}
+
+function normalizeOtpDraft(value: unknown): PersistedOtpDraft | null {
+  if (!value || typeof value !== 'object') {
+    return null;
+  }
+
+  const parsed = value as Partial<PersistedOtpDraft>;
+  const email = typeof parsed.email === 'string' ? parsed.email : '';
+  const code = Array.isArray(parsed.code)
+    ? parsed.code.slice(0, 6).map((digit) => String(digit || '').slice(0, 1))
+    : ['', '', '', '', '', ''];
+  const resendCountdownValue = Number(parsed.resendCountdown);
+
+  if (!email && code.every((digit) => !digit)) {
+    return null;
+  }
+
+  return {
+    step: parsed.step === 'code' ? 'code' : 'email',
+    email,
+    code: Array.from({ length: 6 }, (_, index) => code[index] || ''),
+    resendCountdown: Number.isFinite(resendCountdownValue)
+      ? Math.max(0, Math.floor(resendCountdownValue))
+      : 0,
+    devCode: typeof parsed.devCode === 'string' ? parsed.devCode : '',
+    infoMessage: typeof parsed.infoMessage === 'string' ? parsed.infoMessage : '',
+  };
+}
+
+function readOtpDraftFromStorage(storage: Storage, key: string): PersistedOtpDraft | null {
+  const raw = storage.getItem(key);
+  if (!raw) {
+    return null;
+  }
+
+  try {
+    const parsed = JSON.parse(raw) as Partial<PersistedOtpDraftEntry> & Partial<PersistedOtpDraft>;
+    const savedAt = Number(parsed.savedAt);
+    if (Number.isFinite(savedAt) && Date.now() - savedAt > OTP_DRAFT_TTL_MS) {
+      storage.removeItem(key);
+      return null;
+    }
+
+    const draft = normalizeOtpDraft(parsed.draft ?? parsed);
+    if (!draft) {
+      storage.removeItem(key);
+      return null;
+    }
+
+    return draft;
+  } catch {
+    storage.removeItem(key);
+    return null;
+  }
 }
 
 function readOtpDraft(key: string): PersistedOtpDraft | null {
@@ -35,36 +96,10 @@ function readOtpDraft(key: string): PersistedOtpDraft | null {
     return null;
   }
 
-  const raw = window.sessionStorage.getItem(key);
-  if (!raw) {
-    return null;
-  }
-
-  try {
-    const parsed = JSON.parse(raw) as Partial<PersistedOtpDraft>;
-    const email = typeof parsed.email === 'string' ? parsed.email : '';
-    const code = Array.isArray(parsed.code)
-      ? parsed.code.slice(0, 6).map((digit) => String(digit || '').slice(0, 1))
-      : ['', '', '', '', '', ''];
-    const resendCountdownValue = Number(parsed.resendCountdown);
-
-    if (!email && code.every((digit) => !digit)) {
-      return null;
-    }
-
-    return {
-      step: parsed.step === 'code' ? 'code' : 'email',
-      email,
-      code: Array.from({ length: 6 }, (_, index) => code[index] || ''),
-      resendCountdown: Number.isFinite(resendCountdownValue)
-        ? Math.max(0, Math.floor(resendCountdownValue))
-        : 0,
-      devCode: typeof parsed.devCode === 'string' ? parsed.devCode : '',
-      infoMessage: typeof parsed.infoMessage === 'string' ? parsed.infoMessage : '',
-    };
-  } catch {
-    return null;
-  }
+  return (
+    readOtpDraftFromStorage(window.localStorage, key) ??
+    readOtpDraftFromStorage(window.sessionStorage, key)
+  );
 }
 
 function writeOtpDraft(key: string, draft: PersistedOtpDraft) {
@@ -72,7 +107,13 @@ function writeOtpDraft(key: string, draft: PersistedOtpDraft) {
     return;
   }
 
-  window.sessionStorage.setItem(key, JSON.stringify(draft));
+  const payload: PersistedOtpDraftEntry = {
+    savedAt: Date.now(),
+    draft,
+  };
+  const serialized = JSON.stringify(payload);
+  window.localStorage.setItem(key, serialized);
+  window.sessionStorage.setItem(key, serialized);
 }
 
 function clearOtpDraft(key: string) {
@@ -80,6 +121,7 @@ function clearOtpDraft(key: string) {
     return;
   }
 
+  window.localStorage.removeItem(key);
   window.sessionStorage.removeItem(key);
 }
 
@@ -126,6 +168,9 @@ export default function EmailOtpGate({
       setResendCountdown(draft.resendCountdown);
       setDevCode(draft.devCode);
       setInfoMessage(draft.infoMessage);
+      if (draft.step === 'code') {
+        window.setTimeout(() => inputRefs.current[0]?.focus(), 40);
+      }
     }
     setDraftReady(true);
   }, [draftStorageKey]);
