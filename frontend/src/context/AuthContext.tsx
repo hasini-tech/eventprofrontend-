@@ -48,6 +48,19 @@ function persistAuth(user: User, token: string) {
   document.cookie = `evently_token=${token}; Path=/; Max-Age=86400; SameSite=Lax`;
 }
 
+function readAuthCookieToken() {
+  if (typeof document === 'undefined') {
+    return null;
+  }
+
+  const token = document.cookie
+    .split('; ')
+    .find((entry) => entry.startsWith('evently_token='))
+    ?.split('=')[1];
+
+  return token || null;
+}
+
 function clearAuth() {
   localStorage.removeItem('evently_token');
   localStorage.removeItem('evently_user');
@@ -73,19 +86,66 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    const stored = localStorage.getItem('evently_user');
-    const token = localStorage.getItem('evently_token');
-    if (stored && token) {
+    let cancelled = false;
+
+    const hydrateAuth = async () => {
       try {
-        const parsedUser = JSON.parse(stored);
-        // Keep the middleware cookie in sync with the persisted session.
-        persistAuth(parsedUser, token);
-        setUser(parsedUser);
+        const storedUserRaw = localStorage.getItem('evently_user');
+        const storedToken = localStorage.getItem('evently_token');
+        const cookieToken = readAuthCookieToken();
+        const sessionToken = storedToken || cookieToken;
+
+        if (!sessionToken) {
+          if (storedUserRaw || storedToken || cookieToken) {
+            clearAuth();
+          }
+          return;
+        }
+
+        let parsedUser: User | null = null;
+        if (storedUserRaw) {
+          try {
+            parsedUser = JSON.parse(storedUserRaw) as User;
+          } catch {
+            parsedUser = null;
+          }
+        }
+
+        if (parsedUser) {
+          persistAuth(parsedUser, sessionToken);
+          if (!cancelled) {
+            setUser(parsedUser);
+          }
+          return;
+        }
+
+        const { data } = await api.get('/users/profile');
+        const hydratedUser = data?.data || data;
+        if (!hydratedUser) {
+          throw new Error('User profile missing');
+        }
+
+        persistAuth(hydratedUser, sessionToken);
+        if (!cancelled) {
+          setUser(hydratedUser);
+        }
       } catch {
-        clearAuth();
+        if (!cancelled) {
+          clearAuth();
+          setUserState(null);
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
       }
-    }
-    setLoading(false);
+    };
+
+    hydrateAuth();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const login = async (email: string, password: string) => {

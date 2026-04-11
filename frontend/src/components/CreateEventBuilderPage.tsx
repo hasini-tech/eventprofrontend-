@@ -154,8 +154,7 @@ export default function CreateEventBuilderPage() {
   useEffect(() => {
     if (authLoading) return;
     const token = getAuthToken();
-    const storedUser = typeof window !== "undefined" ? localStorage.getItem("evently_user") : null;
-    if ((!token || !storedUser) && !user) {
+    if (!token && !user) {
       router.replace(getCreateEventContinueHref("/create-event/form"));
       return;
     }
