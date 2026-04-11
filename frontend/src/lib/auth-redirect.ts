@@ -24,6 +24,14 @@ export function shouldForceLogin(forceLogin?: string | null) {
   return forceLogin === '1';
 }
 
+export function isAuthRoutePath(pathname: string) {
+  return (
+    pathname.startsWith('/login') ||
+    pathname.startsWith('/signup') ||
+    pathname.startsWith('/create-event/continue')
+  );
+}
+
 export function buildAuthHref(
   pathname: '/login' | '/signup',
   redirectPath?: string | null,

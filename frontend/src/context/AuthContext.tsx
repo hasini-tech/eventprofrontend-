@@ -90,31 +90,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const hydrateAuth = async () => {
       try {
-        const storedUserRaw = localStorage.getItem('evently_user');
         const storedToken = localStorage.getItem('evently_token');
         const cookieToken = readAuthCookieToken();
         const sessionToken = storedToken || cookieToken;
 
         if (!sessionToken) {
-          if (storedUserRaw || storedToken || cookieToken) {
+          if (localStorage.getItem('evently_user') || storedToken || cookieToken) {
             clearAuth();
-          }
-          return;
-        }
-
-        let parsedUser: User | null = null;
-        if (storedUserRaw) {
-          try {
-            parsedUser = JSON.parse(storedUserRaw) as User;
-          } catch {
-            parsedUser = null;
-          }
-        }
-
-        if (parsedUser) {
-          persistAuth(parsedUser, sessionToken);
-          if (!cancelled) {
-            setUser(parsedUser);
           }
           return;
         }

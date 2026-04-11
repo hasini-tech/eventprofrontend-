@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { isAuthRoutePath } from '@/lib/auth-redirect';
 
 // Keep browser requests on the frontend origin so the Next.js API route can
 // proxy them to the correct backend service. This avoids direct browser calls
@@ -92,7 +93,9 @@ api.interceptors.response.use(
       localStorage.removeItem('evently_token');
       localStorage.removeItem('evently_user');
       document.cookie = 'evently_token=; Path=/; Max-Age=0; SameSite=Lax';
-      window.location.href = '/login';
+      if (!isAuthRoutePath(window.location.pathname)) {
+        window.location.href = '/login';
+      }
     }
     return Promise.reject(err);
   }

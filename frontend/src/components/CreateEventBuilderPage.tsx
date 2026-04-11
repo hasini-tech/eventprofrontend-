@@ -153,8 +153,7 @@ export default function CreateEventBuilderPage() {
 
   useEffect(() => {
     if (authLoading) return;
-    const token = getAuthToken();
-    if (!token && !user) {
+    if (!user) {
       router.replace(getCreateEventContinueHref("/create-event/form"));
       return;
     }

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import api from '@/lib/api';
 import EventCard from '@/components/EventCard';
@@ -12,6 +13,7 @@ import {
   readStoredTimelineIdentity,
   writePersonalTimelineCacheItems,
 } from '@/lib/personalTimelineCache';
+import { buildAuthHref } from '@/lib/auth-redirect';
 import {
   AlertCircle,
   ArrowRight,
@@ -485,7 +487,8 @@ function CalendarView({
 }
 
 export default function Dashboard() {
-  const { user } = useAuth();
+  const router = useRouter();
+  const { user, loading: authLoading } = useAuth();
   const [activeTab, setActiveTab] = useState<DashboardTab>(() => {
     if (typeof window !== 'undefined') {
       return getRequestedTab(window.location.search);
@@ -512,6 +515,16 @@ export default function Dashboard() {
     document.body.classList.add('hide-nav');
     return () => document.body.classList.remove('hide-nav');
   }, []);
+
+  useEffect(() => {
+    if (authLoading) {
+      return;
+    }
+
+    if (!user) {
+      router.replace(buildAuthHref('/login', `/dashboard?tab=${activeTab}`));
+    }
+  }, [activeTab, authLoading, router, user]);
 
   useEffect(() => {
     const fetchOverview = async () => {
