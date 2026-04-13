@@ -166,11 +166,11 @@ function StatCard({
   return (
     <div
       style={{
-        padding: '24px',
-        borderRadius: '24px',
+        padding: '18px',
+        borderRadius: '20px',
         background: '#ffffff',
         border: '1px solid #eef2f6',
-        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.02)',
+        boxShadow: '0 10px 22px rgba(16,36,42,0.04)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -178,14 +178,14 @@ function StatCard({
       }}
     >
       <div>
-        <div style={{ color: '#64748b', fontSize: '14px', fontWeight: 500, marginBottom: '8px' }}>{label}</div>
-        <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#111827' }}>{value}</div>
+        <div style={{ color: '#64748b', fontSize: '13px', fontWeight: 500, marginBottom: '6px' }}>{label}</div>
+        <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#111827' }}>{value}</div>
       </div>
       <div
         style={{
-          width: '56px',
-          height: '56px',
-          borderRadius: '18px',
+          width: '48px',
+          height: '48px',
+          borderRadius: '16px',
           background: `${color}08`,
           display: 'flex',
           alignItems: 'center',
@@ -216,15 +216,15 @@ function DashboardTabButton({
       style={{
         background: 'none',
         border: 'none',
-        fontSize: '1rem',
+        fontSize: '0.96rem',
         fontWeight: 700,
         color: active ? '#0e7678' : '#64748b',
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
-        gap: '10px',
+        gap: '8px',
         position: 'relative',
-        padding: '12px 4px',
+        padding: '10px 4px',
         transition: 'color 0.2s ease',
       }}
     >
@@ -271,20 +271,20 @@ function CalendarView({
 
   if (items.length === 0) {
     return (
-      <div style={{ display: 'grid', gap: '14px' }}>
+      <div style={{ display: 'grid', gap: '12px' }}>
         {eventsError && (
-          <div style={{ background: 'rgba(255,101,132,0.1)', color: '#ff6584', padding: '12px', borderRadius: '8px', fontSize: '14px' }}>
+          <div style={{ background: 'rgba(255,101,132,0.1)', color: '#ff6584', padding: '11px 12px', borderRadius: '10px', fontSize: '13px' }}>
             {eventsError}
           </div>
         )}
         {ticketsError && (
-          <div style={{ background: 'rgba(255,206,86,0.18)', color: '#b45309', padding: '12px', borderRadius: '8px', fontSize: '14px' }}>
+          <div style={{ background: 'rgba(255,206,86,0.18)', color: '#b45309', padding: '11px 12px', borderRadius: '10px', fontSize: '13px' }}>
             {ticketsError}
           </div>
         )}
-        <div style={{ padding: '60px', textAlign: 'center', background: 'var(--surface-color)', borderRadius: '16px', border: '1px dashed var(--border-color)' }}>
-          <p style={{ color: 'var(--text-secondary)', marginBottom: '20px' }}>Your calendar is empty right now.</p>
-          <button onClick={() => (window.location.href = '/create-event')} style={{ padding: '12px 24px', background: 'var(--primary-color)', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold' }}>
+        <div style={{ padding: '44px 20px', textAlign: 'center', background: 'var(--surface-color)', borderRadius: '16px', border: '1px dashed var(--border-color)' }}>
+          <p style={{ color: 'var(--text-secondary)', marginBottom: '16px', fontSize: '0.96rem' }}>Your calendar is empty right now.</p>
+          <button onClick={() => (window.location.href = '/create-event')} style={{ padding: '11px 18px', background: 'var(--primary-color)', color: 'white', border: 'none', borderRadius: '10px', cursor: 'pointer', fontWeight: 'bold' }}>
             Create Event
           </button>
         </div>
@@ -293,7 +293,7 @@ function CalendarView({
   }
 
   return (
-    <div style={{ display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
+    <div style={{ display: 'grid', gap: '20px', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
       <section
         id="calendar-grid"
         style={{
@@ -304,39 +304,39 @@ function CalendarView({
           padding: '22px',
         }}
       >
-        <div style={{ display: 'flex', justifyContent: 'space-between', gap: '16px', alignItems: 'center', marginBottom: '18px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', gap: '14px', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap' }}>
           <div>
-            <div style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '6px' }}>
+            <div style={{ color: 'var(--text-secondary)', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '6px' }}>
               Calendars
             </div>
-            <h2 style={{ fontSize: '1.9rem', margin: 0 }}>{monthLabel}</h2>
+            <h2 style={{ fontSize: '1.7rem', margin: 0 }}>{monthLabel}</h2>
           </div>
-          <div style={{ padding: '10px 14px', borderRadius: '14px', background: 'rgba(15,115,119,0.08)', color: 'var(--primary-color)', fontWeight: 800 }}>
+          <div style={{ padding: '9px 12px', borderRadius: '12px', background: 'rgba(15,115,119,0.08)', color: 'var(--primary-color)', fontWeight: 700 }}>
             {items.length} scheduled items
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, minmax(0, 1fr))', gap: '8px', marginBottom: '10px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, minmax(0, 1fr))', gap: '6px', marginBottom: '8px' }}>
           {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-            <div key={day} style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '13px', fontWeight: 700, padding: '6px 0' }}>
+            <div key={day} style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '12px', fontWeight: 700, padding: '6px 0' }}>
               {day}
             </div>
           ))}
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, minmax(0, 1fr))', gap: '8px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, minmax(0, 1fr))', gap: '6px' }}>
           {monthCells.map((cell) => {
             const isToday = formatDateKey(cell.date) === formatDateKey(today);
             return (
               <div
                 key={cell.date.toISOString()}
                 style={{
-                  minHeight: '104px',
-                  padding: '10px',
-                  borderRadius: '16px',
+                  minHeight: '92px',
+                  padding: '8px',
+                  borderRadius: '14px',
                   border: `1px solid ${isToday ? 'rgba(15,115,119,0.35)' : 'rgba(148,163,184,0.18)'}`,
                   background: cell.isCurrentMonth ? '#fff' : 'rgba(248,250,252,0.8)',
-                  boxShadow: isToday ? '0 12px 24px rgba(15,115,119,0.12)' : 'none',
+                  boxShadow: isToday ? '0 10px 20px rgba(15,115,119,0.1)' : 'none',
                   display: 'grid',
                   alignContent: 'start',
                   gap: '6px',
@@ -344,8 +344,8 @@ function CalendarView({
               >
                 <div
                   style={{
-                    width: '28px',
-                    height: '28px',
+                    width: '26px',
+                    height: '26px',
                     borderRadius: '999px',
                     display: 'flex',
                     alignItems: 'center',
@@ -353,7 +353,7 @@ function CalendarView({
                     background: isToday ? 'var(--primary-color)' : 'transparent',
                     color: isToday ? '#fff' : cell.isCurrentMonth ? 'var(--text-primary)' : '#94a3b8',
                     fontWeight: 800,
-                    fontSize: '13px',
+                    fontSize: '12px',
                   }}
                 >
                   {cell.date.getDate()}
@@ -363,12 +363,12 @@ function CalendarView({
                   <a
                     key={item.id}
                     href={item.href}
-                    style={{
-                      padding: '6px 8px',
-                      borderRadius: '10px',
+                      style={{
+                      padding: '5px 7px',
+                      borderRadius: '8px',
                       background: `${item.accent}14`,
                       color: item.accent,
-                      fontSize: '11px',
+                      fontSize: '10px',
                       fontWeight: 800,
                       lineHeight: 1.35,
                       textDecoration: 'none',
@@ -382,7 +382,7 @@ function CalendarView({
                 ))}
 
                 {cell.items.length > 2 && (
-                  <div style={{ color: 'var(--text-secondary)', fontSize: '11px', fontWeight: 700 }}>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: '10px', fontWeight: 700 }}>
                     +{cell.items.length - 2} more
                   </div>
                 )}
@@ -406,31 +406,31 @@ function CalendarView({
         }}
       >
         <div>
-          <div style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '6px' }}>
+          <div style={{ color: 'var(--text-secondary)', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '6px' }}>
             Upcoming
           </div>
-          <h2 style={{ fontSize: '1.9rem', margin: 0 }}>Your schedule</h2>
+          <h2 style={{ fontSize: '1.7rem', margin: 0 }}>Your schedule</h2>
         </div>
 
         {eventsError && (
-          <div style={{ background: 'rgba(255,101,132,0.1)', color: '#ff6584', padding: '12px', borderRadius: '8px', fontSize: '14px' }}>
+          <div style={{ background: 'rgba(255,101,132,0.1)', color: '#ff6584', padding: '11px 12px', borderRadius: '10px', fontSize: '13px' }}>
             {eventsError}
           </div>
         )}
         {ticketsError && (
-          <div style={{ background: 'rgba(255,206,86,0.18)', color: '#b45309', padding: '12px', borderRadius: '8px', fontSize: '14px' }}>
+          <div style={{ background: 'rgba(255,206,86,0.18)', color: '#b45309', padding: '11px 12px', borderRadius: '10px', fontSize: '13px' }}>
             {ticketsError}
           </div>
         )}
 
-        <div style={{ display: 'grid', gap: '12px' }}>
+        <div style={{ display: 'grid', gap: '10px' }}>
           {upcomingItems.slice(0, 8).map((item) => (
             <a
               key={item.id}
               href={item.href}
               style={{
-                padding: '16px',
-                borderRadius: '18px',
+                padding: '14px',
+                borderRadius: '16px',
                 border: '1px solid rgba(148,163,184,0.16)',
                 background: '#fff',
                 textDecoration: 'none',
@@ -442,12 +442,12 @@ function CalendarView({
               <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', alignItems: 'center' }}>
                 <span
                   style={{
-                    padding: '6px 10px',
+                    padding: '5px 8px',
                     borderRadius: '999px',
                     background: `${item.accent}14`,
                     color: item.accent,
                     fontWeight: 800,
-                    fontSize: '12px',
+                    fontSize: '11px',
                   }}
                 >
                   {item.kind}
@@ -645,27 +645,27 @@ export default function Dashboard() {
   }
 
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
-      <div style={{ marginBottom: '48px' }}>
-        <h1 style={{ fontSize: '3rem', fontWeight: 800, color: '#111827', letterSpacing: '-0.03em', marginBottom: '8px' }}>Welcome, {firstName}</h1>
-        <p style={{ color: '#64748b', fontSize: '1.2rem', fontWeight: 500 }}>
+    <div style={{ maxWidth: '1080px', margin: '0 auto', padding: '32px 20px 64px' }}>
+      <div style={{ marginBottom: '36px' }}>
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#111827', letterSpacing: '-0.03em', marginBottom: '8px' }}>Welcome, {firstName}</h1>
+        <p style={{ color: '#64748b', fontSize: '1rem', fontWeight: 500 }}>
           {activeTab === 'calendar'
             ? 'See everything you are hosting and attending in one calendar.'
             : 'Manage your tickets and hosted events'}
         </p>
         {quickLinks.length > 0 && (
-          <div style={{ marginTop: '24px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          <div style={{ marginTop: '18px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
             {quickLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 style={{
-                  padding: '10px 18px',
-                  borderRadius: '12px',
+                  padding: '9px 14px',
+                  borderRadius: '999px',
                   border: '1px solid #eef2f6',
                   background: '#ffffff',
                   fontWeight: 700,
-                  fontSize: '0.9rem',
+                  fontSize: '0.86rem',
                   color: '#111827',
                   boxShadow: '0 2px 8px rgba(0,0,0,0.02)',
                   transition: 'all 0.2s ease',
@@ -687,7 +687,7 @@ export default function Dashboard() {
       </div>
 
       {activeTab === 'calendar' ? (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '18px', marginBottom: '30px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px', marginBottom: '24px' }}>
           <StatCard label="Scheduled" value={calendarCounts.scheduled} icon={CalendarRange} color="var(--primary-color)" />
           <StatCard label="Hosting" value={calendarCounts.hosting} icon={Calendar} color="#0f766e" />
           <StatCard label="Attending" value={calendarCounts.attending} icon={Ticket} color="#2563eb" />
@@ -707,7 +707,7 @@ export default function Dashboard() {
         </div>
       ) : (
         overview && (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '18px', marginBottom: '30px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px', marginBottom: '24px' }}>
             <StatCard label="Hosted events" value={overview.total_events} icon={Calendar} color="var(--primary-color)" />
             <StatCard label="Confirmed RSVPs" value={overview.confirmed_count} icon={CheckCircle2} color="#4bc0c0" />
             <StatCard label="Waitlist" value={overview.waitlisted_count} icon={AlertCircle} color="#f06f4f" />
@@ -716,7 +716,7 @@ export default function Dashboard() {
         )
       )}
 
-      <div style={{ display: 'flex', gap: '20px', marginBottom: '30px', borderBottom: '1px solid var(--border-color)', paddingBottom: '10px', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', gap: '16px', marginBottom: '24px', borderBottom: '1px solid var(--border-color)', paddingBottom: '10px', flexWrap: 'wrap' }}>
         <DashboardTabButton active={activeTab === 'tickets'} icon={Ticket} label="My Tickets" onClick={() => handleTabChange('tickets')} />
         <DashboardTabButton active={activeTab === 'events'} icon={Calendar} label="Hosted Events" onClick={() => handleTabChange('events')} />
         <DashboardTabButton active={activeTab === 'calendar'} icon={CalendarRange} label="Calendars" onClick={() => handleTabChange('calendar')} />

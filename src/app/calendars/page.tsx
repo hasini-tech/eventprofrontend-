@@ -105,27 +105,27 @@ export default function CalendarsPage() {
   }
 
   return (
-    <main style={{ maxWidth: 1040, margin: "0 auto", padding: "44px 20px 80px" }}>
-      <section style={{ marginBottom: 28 }}>
-        <h1 style={{ fontSize: "2.6rem", fontWeight: 800, letterSpacing: "-0.04em", margin: "0 0 12px" }}>Calendars</h1>
+    <main style={{ maxWidth: 960, margin: "0 auto", padding: "32px 20px 60px" }}>
+      <section style={{ marginBottom: 18 }}>
+        <h1 style={{ fontSize: "2rem", fontWeight: 800, letterSpacing: "-0.04em", margin: "0 0 8px" }}>Calendars</h1>
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "110px 1fr auto",
-            gap: 18,
-            padding: 20,
-            borderRadius: 28,
+            gridTemplateColumns: "84px 1fr auto",
+            gap: 12,
+            padding: 14,
+            borderRadius: 20,
             background: "linear-gradient(180deg, rgba(255,255,255,0.96), rgba(246,250,251,0.94))",
             border: "1px solid rgba(14,118,120,0.12)",
-            boxShadow: "0 18px 42px rgba(17,39,45,0.06)",
+            boxShadow: "0 14px 32px rgba(16,36,42,0.06)",
             alignItems: "center",
           }}
         >
           <div
             style={{
-              width: 110,
-              height: 110,
-              borderRadius: 24,
+              width: 84,
+              height: 84,
+              borderRadius: 18,
               background: "linear-gradient(135deg, rgba(14,118,120,0.18), rgba(255,255,255,0.95))",
               display: "grid",
               placeItems: "center",
@@ -133,9 +133,9 @@ export default function CalendarsPage() {
           >
             <div
               style={{
-                width: 58,
-                height: 58,
-                borderRadius: 18,
+                width: 44,
+                height: 44,
+                borderRadius: 14,
                 background: "linear-gradient(135deg, #f06292, #f8f8ff)",
                 display: "grid",
                 placeItems: "center",
@@ -143,12 +143,12 @@ export default function CalendarsPage() {
                 boxShadow: "0 14px 30px rgba(240,98,146,0.25)",
               }}
             >
-              <CalendarDays size={26} />
+              <CalendarDays size={22} />
             </div>
           </div>
           <div>
-            <div style={{ fontSize: "1.45rem", fontWeight: 800, color: "#1f2937", marginBottom: 6 }}>Welcome to Owner Calendars</div>
-            <div style={{ color: "#6b7280", lineHeight: 1.6, maxWidth: 560 }}>
+            <div style={{ fontSize: "1.05rem", fontWeight: 800, color: "#1f2937", marginBottom: 4 }}>Welcome to Owner Calendars</div>
+            <div style={{ color: "#6b7280", lineHeight: 1.55, maxWidth: 480, fontSize: "0.9rem" }}>
               Create and manage your personal calendars, then assign events to the right one while publishing.
             </div>
           </div>
@@ -157,49 +157,51 @@ export default function CalendarsPage() {
             onClick={() => router.push("/calendars/create")}
             style={{
               border: "none",
-              borderRadius: 16,
-              padding: "12px 18px",
-              background: "#111827",
+              borderRadius: 12,
+              padding: "9px 14px",
+              background: "#0e7678",
               color: "#fff",
               fontWeight: 800,
               cursor: "pointer",
               display: "inline-flex",
               alignItems: "center",
               gap: 8,
+              boxShadow: "0 12px 24px rgba(14,118,120,0.22)",
             }}
           >
-            <Plus size={16} />
+            <Plus size={15} />
             Create
           </button>
         </div>
       </section>
 
       {error && (
-        <div style={{ marginBottom: 18, padding: "14px 16px", borderRadius: 16, background: "rgba(255,101,132,0.1)", color: "#be123c" }}>
+        <div style={{ marginBottom: 16, padding: "12px 14px", borderRadius: 14, background: "rgba(255,101,132,0.1)", color: "#be123c" }}>
           {error}
         </div>
       )}
 
       <section style={{ marginBottom: 26 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", gap: 16, alignItems: "center", marginBottom: 16, flexWrap: "wrap" }}>
-          <h2 style={{ fontSize: "2rem", margin: 0, fontWeight: 800 }}>My Calendars</h2>
+        <div style={{ display: "flex", justifyContent: "space-between", gap: 14, alignItems: "center", marginBottom: 14, flexWrap: "wrap" }}>
+          <h2 style={{ fontSize: "1.7rem", margin: 0, fontWeight: 800 }}>My Calendars</h2>
           <button
             type="button"
             onClick={() => router.push("/calendars/create")}
             style={{
-              border: "1px solid rgba(14,118,120,0.12)",
-              borderRadius: 14,
-              padding: "10px 14px",
-              background: "#fff",
-              color: "#4b5563",
-              fontWeight: 700,
+              border: "none",
+              borderRadius: 12,
+              padding: "8px 12px",
+              background: "#0e7678",
+              color: "#fff",
+              fontWeight: 800,
               cursor: "pointer",
               display: "inline-flex",
               alignItems: "center",
               gap: 8,
+              boxShadow: "0 10px 20px rgba(14,118,120,0.18)",
             }}
           >
-            <Plus size={16} />
+            <Plus size={15} />
             Create
           </button>
         </div>
@@ -207,8 +209,8 @@ export default function CalendarsPage() {
         {calendars.length === 0 ? (
           <div
             style={{
-              padding: 28,
-              borderRadius: 24,
+              padding: 22,
+              borderRadius: 20,
               background: "#fff",
               border: "1px dashed rgba(14,118,120,0.22)",
               color: "#6b7280",
@@ -217,7 +219,7 @@ export default function CalendarsPage() {
             No calendars yet.
           </div>
         ) : (
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 14 }}>
             {calendars.map((calendar) => (
               <Link
                 key={calendar.id}
@@ -225,13 +227,13 @@ export default function CalendarsPage() {
                 style={{
                   textDecoration: "none",
                   color: "inherit",
-                  padding: 18,
-                  borderRadius: 26,
+                  padding: 16,
+                  borderRadius: 22,
                   background: "#fff",
                   border: "1px solid rgba(14,118,120,0.1)",
-                  boxShadow: "0 18px 40px rgba(17,39,45,0.05)",
+                  boxShadow: "0 14px 30px rgba(16,36,42,0.05)",
                   display: "grid",
-                  gap: 14,
+                  gap: 12,
                   transition: "transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease",
                   cursor: "pointer",
                 }}
@@ -249,8 +251,8 @@ export default function CalendarsPage() {
                 <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "flex-start" }}>
                   <div
                     style={{
-                      width: 52,
-                      height: 52,
+                      width: 48,
+                      height: 48,
                       borderRadius: "50%",
                       background: buildCalendarGradient(calendar.tint_color),
                       color: "#fff",
@@ -279,14 +281,14 @@ export default function CalendarsPage() {
                 </div>
 
                 <div>
-                  <div style={{ fontSize: "1.28rem", fontWeight: 800, color: "#111827", marginBottom: 4 }}>{calendar.name}</div>
+                  <div style={{ fontSize: "1.12rem", fontWeight: 800, color: "#111827", marginBottom: 4 }}>{calendar.name}</div>
                   <div style={{ color: "#94a3b8", fontSize: "0.92rem", marginBottom: 8 }}>lu.ma/{calendar.slug}</div>
-                  <div style={{ color: "#6b7280", fontSize: "0.95rem", lineHeight: 1.55 }}>
+                  <div style={{ color: "#6b7280", fontSize: "0.92rem", lineHeight: 1.55 }}>
                     {calendar.description || "No description yet."}
                   </div>
                 </div>
 
-                <div style={{ display: "grid", gap: 8, color: "#4b5563", fontSize: "0.9rem" }}>
+                <div style={{ display: "grid", gap: 8, color: "#4b5563", fontSize: "0.88rem" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                     <Users size={15} color="var(--primary-color)" />
                     <span>{calendar.subscriber_count} Subscriber{calendar.subscriber_count === 1 ? "" : "s"}</span>
@@ -306,12 +308,12 @@ export default function CalendarsPage() {
         )}
       </section>
 
-      <section style={{ borderTop: "1px solid rgba(148,163,184,0.22)", paddingTop: 28 }}>
-        <h2 style={{ fontSize: "2rem", margin: "0 0 16px", fontWeight: 800 }}>Subscribed Calendars</h2>
+      <section style={{ borderTop: "1px solid rgba(148,163,184,0.22)", paddingTop: 24 }}>
+        <h2 style={{ fontSize: "1.7rem", margin: "0 0 14px", fontWeight: 800 }}>Subscribed Calendars</h2>
         <div
           style={{
-            padding: 28,
-            borderRadius: 24,
+            padding: 22,
+            borderRadius: 20,
             background: "#fff",
             border: "1px dashed rgba(148,163,184,0.22)",
             color: "#94a3b8",

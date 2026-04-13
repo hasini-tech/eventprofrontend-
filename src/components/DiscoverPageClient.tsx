@@ -1012,20 +1012,20 @@ export default function DiscoverPageClient() {
             .discover-hero-grid {
               display: grid;
               grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
-              gap: 28px;
+              gap: 22px;
               align-items: stretch;
             }
 
             .discover-spotlight {
-              border-radius: 32px;
-              padding: 14px;
+              border-radius: 28px;
+              padding: 12px;
               overflow: hidden;
             }
 
             .discover-search-row {
               display: grid;
               grid-template-columns: minmax(0, 1.3fr) minmax(230px, 0.7fr);
-              gap: 14px;
+              gap: 12px;
             }
 
             .discover-stat-grid,
@@ -1035,7 +1035,7 @@ export default function DiscoverPageClient() {
             .discover-local-grid,
             .discover-spotlight-meta {
               display: grid;
-              gap: 18px;
+              gap: 14px;
             }
 
             .discover-stat-grid {
@@ -1073,18 +1073,18 @@ export default function DiscoverPageClient() {
             }
 
             .discover-event-card {
-              border-radius: 28px;
-              padding: 16px;
+              border-radius: 22px;
+              padding: 14px;
               display: grid;
-              gap: 16px;
+              gap: 14px;
             }
 
             .discover-calendar-card,
             .discover-local-card {
-              border-radius: 28px;
-              padding: 22px;
+              border-radius: 22px;
+              padding: 18px;
               display: grid;
-              gap: 18px;
+              gap: 16px;
             }
 
             @media (max-width: 1120px) {
@@ -1118,23 +1118,23 @@ export default function DiscoverPageClient() {
 
 const topActionButtonStyle: React.CSSProperties = {
   border: '1px solid var(--border-color)',
-  borderRadius: '16px',
-  padding: '14px 18px',
+  borderRadius: '14px',
+  padding: '12px 16px',
   background: 'rgba(255,255,255,0.92)',
   color: 'var(--text-primary)',
-  fontWeight: 800,
-  fontSize: '1rem',
+  fontWeight: 700,
+  fontSize: '0.96rem',
   cursor: 'pointer',
-  boxShadow: '0 14px 28px rgba(17,39,45,0.06)',
+  boxShadow: '0 10px 22px rgba(16,36,42,0.05)',
 };
 
 const searchPanelStyle: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   gap: '12px',
-  padding: '0 18px',
-  minHeight: '62px',
-  borderRadius: '20px',
+  padding: '0 16px',
+  minHeight: '56px',
+  borderRadius: '16px',
   border: '1px solid var(--border-color)',
   background: 'rgba(255,255,255,0.94)',
   boxShadow: 'var(--shadow-card)',
@@ -1149,20 +1149,20 @@ const searchInputStyle: React.CSSProperties = {
   background: 'transparent',
   width: '100%',
   outline: 'none',
-  fontSize: '1rem',
+  fontSize: '0.96rem',
   color: 'var(--text-primary)',
 };
 
 const statCardStyle: React.CSSProperties = {
-  borderRadius: '24px',
-  padding: '18px 20px',
+  borderRadius: '20px',
+  padding: '16px 18px',
   border: '1px solid var(--border-color)',
   background: 'rgba(255,255,255,0.92)',
   boxShadow: 'var(--shadow-card)',
 };
 
 const statValueStyle: React.CSSProperties = {
-  fontSize: '2rem',
+  fontSize: '1.7rem',
   lineHeight: 1,
   letterSpacing: '-0.05em',
   fontWeight: 800,
@@ -1181,66 +1181,66 @@ const sectionHeadingRowStyle: React.CSSProperties = {
   gap: '18px',
   alignItems: 'flex-end',
   flexWrap: 'wrap',
-  marginBottom: '22px',
+  marginBottom: '18px',
 };
 
 const sectionTitleStyle: React.CSSProperties = {
   margin: 0,
-  fontSize: 'clamp(2rem, 4vw, 3.1rem)',
-  lineHeight: 0.98,
+  fontSize: 'clamp(1.8rem, 3.4vw, 2.8rem)',
+  lineHeight: 1,
   letterSpacing: '-0.05em',
 };
 
 const sectionCopyStyle: React.CSSProperties = {
   margin: 0,
   color: 'var(--text-secondary)',
-  maxWidth: '720px',
-  lineHeight: 1.7,
+  maxWidth: '640px',
+  lineHeight: 1.65,
 };
 
 const clearButtonStyle: React.CSSProperties = {
   border: '1px solid var(--border-color)',
-  borderRadius: '14px',
-  padding: '12px 16px',
+  borderRadius: '12px',
+  padding: '10px 14px',
   background: 'rgba(255,255,255,0.9)',
   color: 'var(--text-primary)',
-  fontWeight: 800,
+  fontWeight: 700,
   cursor: 'pointer',
 };
 
 const categoryCardStyle: React.CSSProperties = {
-  borderRadius: '30px',
-  padding: '24px',
+  borderRadius: '24px',
+  padding: '20px',
   display: 'grid',
-  gap: '20px',
+  gap: '16px',
   background: 'linear-gradient(180deg, rgba(255,255,255,0.98), rgba(244,251,251,0.96))',
   textAlign: 'left',
   cursor: 'pointer',
 };
 
 const categoryCountPillStyle: React.CSSProperties = {
-  padding: '8px 12px',
+  padding: '7px 10px',
   borderRadius: '999px',
   background: 'rgba(14,118,120,0.08)',
-  fontSize: '0.85rem',
-  fontWeight: 800,
+  fontSize: '0.78rem',
+  fontWeight: 700,
 };
 
 const emptySpotlightStyle: React.CSSProperties = {
-  minHeight: '420px',
+  minHeight: '380px',
   display: 'grid',
   placeItems: 'center',
   textAlign: 'center',
-  padding: '24px',
-  gap: '16px',
+  padding: '20px',
+  gap: '14px',
   background: 'linear-gradient(135deg, rgba(14,118,120,0.08), rgba(255,255,255,0.98))',
-  borderRadius: '28px',
+  borderRadius: '24px',
 };
 
 const emptySpotlightIconStyle: React.CSSProperties = {
-  width: '70px',
-  height: '70px',
-  borderRadius: '24px',
+  width: '64px',
+  height: '64px',
+  borderRadius: '20px',
   display: 'grid',
   placeItems: 'center',
   background: 'rgba(14,118,120,0.1)',
@@ -1250,33 +1250,36 @@ const spotlightBadgeStyle: React.CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
   gap: '8px',
-  padding: '10px 14px',
+  padding: '9px 12px',
   borderRadius: '999px',
   background: 'rgba(255,255,255,0.16)',
   border: '1px solid rgba(255,255,255,0.18)',
   backdropFilter: 'blur(10px)',
   fontWeight: 700,
+  fontSize: '0.86rem',
 };
 
 const spotlightMetaCardStyle: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   gap: '10px',
-  padding: '14px 16px',
-  borderRadius: '18px',
+  padding: '12px 14px',
+  borderRadius: '16px',
   background: 'rgba(255,255,255,0.12)',
   backdropFilter: 'blur(10px)',
   fontWeight: 600,
+  fontSize: '0.92rem',
 };
 
 const spotlightGhostButtonStyle: React.CSSProperties = {
-  minHeight: '52px',
-  borderRadius: '16px',
+  minHeight: '46px',
+  borderRadius: '14px',
   border: '1px solid rgba(255,255,255,0.2)',
-  padding: '0 22px',
+  padding: '0 18px',
   background: 'rgba(255,255,255,0.12)',
   color: '#fff',
-  fontWeight: 800,
+  fontWeight: 700,
+  fontSize: '0.96rem',
   cursor: 'pointer',
   boxShadow: '0 14px 24px rgba(17,39,45,0.14)',
 };
@@ -1285,34 +1288,34 @@ const imageBadgeStyle: React.CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
   gap: '8px',
-  padding: '9px 12px',
+  padding: '8px 11px',
   borderRadius: '999px',
   background: 'rgba(255,255,255,0.88)',
   color: 'var(--text-primary)',
-  fontWeight: 800,
-  fontSize: '0.82rem',
+  fontWeight: 700,
+  fontSize: '0.78rem',
   boxShadow: '0 10px 22px rgba(17,39,45,0.12)',
 };
 
 const hostLabelStyle: React.CSSProperties = {
   color: 'var(--primary-color)',
-  fontWeight: 800,
-  fontSize: '0.9rem',
+  fontWeight: 700,
+  fontSize: '0.84rem',
 };
 
 const metaPillStyle: React.CSSProperties = {
-  padding: '8px 12px',
+  padding: '7px 10px',
   borderRadius: '999px',
   background: 'var(--primary-soft)',
   color: 'var(--primary-color)',
-  fontWeight: 800,
-  fontSize: '0.82rem',
+  fontWeight: 700,
+  fontSize: '0.76rem',
 };
 
 const eventDescriptionStyle: React.CSSProperties = {
   margin: 0,
   color: 'var(--text-secondary)',
-  lineHeight: 1.7,
+  lineHeight: 1.65,
   display: '-webkit-box',
   WebkitLineClamp: 3,
   WebkitBoxOrient: 'vertical',
@@ -1322,35 +1325,36 @@ const eventDescriptionStyle: React.CSSProperties = {
 const detailRowStyle: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
-  gap: '10px',
+  gap: '8px',
   fontWeight: 600,
+  fontSize: '0.92rem',
 };
 
 const emptyStateStyle: React.CSSProperties = {
-  borderRadius: '28px',
-  padding: '48px 24px',
+  borderRadius: '24px',
+  padding: '40px 20px',
   textAlign: 'center',
   display: 'grid',
   placeItems: 'center',
-  gap: '16px',
+  gap: '14px',
   background: 'linear-gradient(180deg, rgba(255,255,255,0.98), rgba(244,251,251,0.96))',
 };
 
 const followButtonStyle: React.CSSProperties = {
-  borderRadius: '14px',
+  borderRadius: '12px',
   border: '1px solid var(--border-color)',
-  padding: '10px 14px',
-  fontWeight: 800,
+  padding: '9px 12px',
+  fontWeight: 700,
   cursor: 'pointer',
 };
 
 const calendarTagStyle: React.CSSProperties = {
-  padding: '8px 12px',
+  padding: '7px 10px',
   borderRadius: '999px',
   background: 'rgba(14,118,120,0.08)',
   color: 'var(--primary-color)',
   fontWeight: 700,
-  fontSize: '0.82rem',
+  fontSize: '0.76rem',
 };
 
 const openCollectionButtonStyle: React.CSSProperties = {
@@ -1358,14 +1362,15 @@ const openCollectionButtonStyle: React.CSSProperties = {
   alignItems: 'center',
   justifyContent: 'center',
   gap: '10px',
-  minHeight: '48px',
+  minHeight: '44px',
   width: 'fit-content',
-  padding: '0 18px',
-  borderRadius: '14px',
+  padding: '0 16px',
+  borderRadius: '12px',
   border: '1px solid var(--border-color)',
   background: 'rgba(255,255,255,0.94)',
   color: 'var(--text-primary)',
-  fontWeight: 800,
+  fontWeight: 700,
+  fontSize: '0.96rem',
   cursor: 'pointer',
 };
 
@@ -1373,10 +1378,11 @@ const localInfoPillStyle: React.CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
   gap: '10px',
-  padding: '12px 16px',
+  padding: '10px 14px',
   borderRadius: '999px',
   border: '1px solid var(--border-color)',
   background: 'rgba(255,255,255,0.92)',
   color: 'var(--text-secondary)',
   fontWeight: 700,
+  fontSize: '0.9rem',
 };

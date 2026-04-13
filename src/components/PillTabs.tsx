@@ -15,9 +15,9 @@ export default function PillTabs({ pills, activeId, onChange }: Props) {
     <div
       style={{
         display: "flex",
-        gap: "10px",
+        gap: "8px",
         flexWrap: "wrap",
-        marginTop: "12px",
+        marginTop: "8px",
       }}
     >
       {pills.map((pill) => {
@@ -27,15 +27,16 @@ export default function PillTabs({ pills, activeId, onChange }: Props) {
             key={pill.id}
             onClick={() => onChange(pill.id)}
             style={{
-              padding: "10px 14px",
-              borderRadius: "12px",
+              padding: "9px 12px",
+              borderRadius: "999px",
               border: active ? "2px solid #0f9d7a" : "1px solid #e5e7eb",
               background: active ? "rgba(15,157,122,0.1)" : "#fff",
-              fontWeight: 800,
+              fontWeight: 700,
               color: active ? "#0f172a" : "#0f172a",
-              boxShadow: "0 10px 24px rgba(0,0,0,0.04)",
+              boxShadow: "0 8px 18px rgba(16,36,42,0.04)",
               cursor: "pointer",
               transition: "all 120ms ease",
+              fontSize: "0.92rem",
             }}
           >
             {pill.label}

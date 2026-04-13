@@ -18,9 +18,9 @@ const SectionTabs: React.FC<Props> = ({ tabs, activeId, onChange }) => {
     <div
       style={{
         display: "flex",
-        gap: "10px",
+        gap: "8px",
         flexWrap: "wrap",
-        padding: "10px 0",
+        padding: "6px 0",
       }}
     >
       {tabs.map((tab) => {
@@ -30,15 +30,16 @@ const SectionTabs: React.FC<Props> = ({ tabs, activeId, onChange }) => {
             key={tab.id}
             onClick={() => onChange(tab.id)}
             style={{
-              padding: "10px 14px",
-              borderRadius: "12px",
+              padding: "9px 12px",
+              borderRadius: "999px",
               border: active ? "2px solid var(--primary-color)" : "1px solid #e5e7eb",
               background: active ? "rgba(15,115,119,0.1)" : "#fff",
-              fontWeight: 800,
+              fontWeight: 700,
               color: active ? "var(--primary-strong)" : "var(--text-primary)",
-              boxShadow: "0 8px 18px rgba(0,0,0,0.04)",
+              boxShadow: "0 8px 18px rgba(16,36,42,0.04)",
               cursor: "pointer",
               transition: "all 120ms ease",
+              fontSize: "0.92rem",
             }}
           >
             {tab.label}

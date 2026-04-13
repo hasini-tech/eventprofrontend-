@@ -385,20 +385,20 @@ export default function ManageEventPage() {
 
   return (
     <PageShell>
-      <div style={{ maxWidth: 1040, margin: "0 auto", padding: "48px 20px 80px" }}>
+      <div style={{ maxWidth: 960, margin: "0 auto", padding: "34px 18px 72px" }}>
         {/* Breadcrumb & Header */}
-        <div style={{ marginBottom: 40 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 6, color: "#666", fontSize: "0.95rem", marginBottom: 12 }}>
+        <div style={{ marginBottom: 32 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, color: "#666", fontSize: "0.9rem", marginBottom: 10 }}>
             <span>Personal</span>
             <ChevronRight size={14} />
           </div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-            <h1 style={{ fontSize: "3.2rem", fontWeight: 800, margin: 0, letterSpacing: "-0.04em" }}>{event.title}</h1>
+            <h1 style={{ fontSize: "2.6rem", fontWeight: 800, margin: 0, letterSpacing: "-0.04em" }}>{event.title}</h1>
             <a 
               href={`/events/${event.slug}`} 
               target="_blank" 
               rel="noreferrer"
-              style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 14px", borderRadius: 10, background: "#f5f5f5", color: "#333", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none" }}
+              style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "9px 12px", borderRadius: 10, background: "#f5f5f5", color: "#333", fontWeight: 700, fontSize: "0.88rem", textDecoration: "none" }}
             >
               Event Page <ExternalLink size={14} />
             </a>
@@ -411,66 +411,66 @@ export default function ManageEventPage() {
         {/* Main Content Sections */}
         <section style={{ marginTop: 0 }}>
           {activeTab === "overview" && (
-            <div style={{ display: "grid", gap: 32 }}>
+            <div style={{ display: "grid", gap: 24 }}>
               {/* Quick Action Buttons */}
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14 }}>
                 <div onClick={() => setInviteOpen(true)} style={quickActionCard}>
                   <div style={{ ...iconCircle, background: "rgba(0, 102, 255, 0.08)", color: "#0066FF" }}><Users size={20} /></div>
-                  <span style={{ fontWeight: 700, fontSize: "1.05rem" }}>Invite Guests</span>
+                  <span style={{ fontWeight: 700, fontSize: "0.98rem" }}>Invite Guests</span>
                 </div>
                 <div onClick={() => setActiveTab("blasts")} style={quickActionCard}>
                   <div style={{ ...iconCircle, background: "rgba(147, 51, 234, 0.08)", color: "#9333ea" }}><Zap size={20} /></div>
-                  <span style={{ fontWeight: 700, fontSize: "1.05rem" }}>Send a Blast</span>
+                  <span style={{ fontWeight: 700, fontSize: "0.98rem" }}>Send a Blast</span>
                 </div>
                 <div onClick={shareEvent} style={quickActionCard}>
                   <div style={{ ...iconCircle, background: "rgba(236, 72, 153, 0.08)", color: "#ec4899" }}><Share2 size={20} /></div>
-                  <span style={{ fontWeight: 700, fontSize: "1.05rem" }}>Share Event</span>
+                  <span style={{ fontWeight: 700, fontSize: "0.98rem" }}>Share Event</span>
                 </div>
               </div>
 
               {/* Event Summary Grid */}
-              <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 24, alignItems: "start" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1.18fr 1fr", gap: 20, alignItems: "start" }}>
                 {/* Left: Event Card Visual */}
-                <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                  <div style={{ background: "#fff", border: "1px solid #f0f0f0", borderRadius: 24, overflow: "hidden", boxShadow: "0 10px 30px rgba(0,0,0,0.04)" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                  <div style={{ background: "#fff", border: "1px solid #f0f0f0", borderRadius: 22, overflow: "hidden", boxShadow: "0 10px 24px rgba(0,0,0,0.04)" }}>
                     <div style={{ display: "grid", gridTemplateColumns: "160px 1fr" }}>
-                      <div style={{ height: 160, background: `url(${event.cover_image || DEFAULT_EVENT_COVER}) center/cover` }} />
-                      <div style={{ padding: 20, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                      <div style={{ height: 150, background: `url(${event.cover_image || DEFAULT_EVENT_COVER}) center/cover` }} />
+                      <div style={{ padding: 18, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                         <div>
-                          <div style={{ fontWeight: 800, fontSize: "1.4rem", marginBottom: 12, letterSpacing: "-0.03em" }}>{event.title}</div>
+                          <div style={{ fontWeight: 800, fontSize: "1.2rem", marginBottom: 10, letterSpacing: "-0.03em" }}>{event.title}</div>
                           <div style={{ display: "flex", gap: 12, alignItems: "flex-start", marginBottom: 10 }}>
                             <div style={dateBadgeMini}>
                               <div style={{ fontSize: "0.6rem", textTransform: "uppercase", fontWeight: 700, color: "#ef4444" }}>{eventDate ? eventDate.toLocaleDateString(undefined, { month: "short" }) : "Mo"}</div>
                               <div style={{ fontSize: "0.9rem", fontWeight: 800 }}>{eventDate ? eventDate.getDate() : "1"}</div>
                             </div>
                             <div>
-                              <div style={{ fontWeight: 700, fontSize: "0.9rem" }}>{formattedDate.split(",")[1]?.trim() || formattedDate}</div>
-                              <div style={{ fontSize: "0.85rem", color: "#666" }}>{formattedTime} - {formattedTime}</div>
+                              <div style={{ fontWeight: 700, fontSize: "0.88rem" }}>{formattedDate.split(",")[1]?.trim() || formattedDate}</div>
+                              <div style={{ fontSize: "0.82rem", color: "#666" }}>{formattedTime} - {formattedTime}</div>
                             </div>
                           </div>
-                          <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.9rem", color: "#666" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.88rem", color: "#666" }}>
                             <MapPin size={14} /> <span>{event.is_online ? "Registration for Address" : (event.location || "Register to See Address")}</span>
                           </div>
                         </div>
                       </div>
                     </div>
                     {/* Hosted By Section */}
-                    <div style={{ padding: "0 20px 20px", marginTop: -4 }}>
-                      <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#999", textTransform: "uppercase", marginBottom: 8, letterSpacing: "0.05em" }}>Hosted By</div>
+                    <div style={{ padding: "0 18px 18px", marginTop: -4 }}>
+                      <div style={{ fontSize: "0.74rem", fontWeight: 700, color: "#999", textTransform: "uppercase", marginBottom: 8, letterSpacing: "0.05em" }}>Hosted By</div>
                       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                         <div style={{ width: 28, height: 28, borderRadius: "50%", background: "#f0f0f0", overflow: "hidden" }}>
                           {user?.profile_image ? <img src={user.profile_image} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <Users size={16} style={{ transform: "translate(6px, 6px)" }} />}
                         </div>
-                        <span style={{ fontWeight: 700, fontSize: "0.95rem" }}>{user?.name || "Host"}</span>
+                        <span style={{ fontWeight: 700, fontSize: "0.9rem" }}>{user?.name || "Host"}</span>
                       </div>
                       
                       {/* One Click RSVP placeholder (as in screenshot) */}
-                      <div style={{ marginTop: 24, padding: 18, borderRadius: 18, background: "#f9f9f9", border: "1px solid #efefef" }}>
+                      <div style={{ marginTop: 20, padding: 16, borderRadius: 16, background: "#f9f9f9", border: "1px solid #efefef" }}>
                          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
-                            <div style={{ fontSize: "0.9rem", fontWeight: 700 }}>Registration</div>
-                            <div style={{ padding: "4px 8px", background: "white", borderRadius: 8, fontSize: "0.75rem", border: "1px solid #eee" }}>Status</div>
+                            <div style={{ fontSize: "0.86rem", fontWeight: 700 }}>Registration</div>
+                            <div style={{ padding: "4px 8px", background: "white", borderRadius: 8, fontSize: "0.72rem", border: "1px solid #eee" }}>Status</div>
                          </div>
-                         <button disabled style={{ width: "100%", padding: "14px", borderRadius: 12, background: "#9333ea", color: "white", fontWeight: 800, border: "none", opacity: 0.8 }}>One-Click RSVP</button>
+                         <button disabled style={{ width: "100%", padding: "12px", borderRadius: 10, background: "#9333ea", color: "white", fontWeight: 800, border: "none", opacity: 0.8 }}>One-Click RSVP</button>
                       </div>
                     </div>
                     
@@ -1117,7 +1117,7 @@ function PageShell({ children }: { children: React.ReactNode }) {
 
 function TabBar({ activeTab, onChange }: { activeTab: (typeof tabs)[number]["key"]; onChange: (key: (typeof tabs)[number]["key"]) => void; }) {
   return (
-    <div style={{ display: "flex", gap: 24, borderBottom: "1px solid #eee", marginBottom: 32 }}>
+    <div style={{ display: "flex", gap: 18, borderBottom: "1px solid #eee", marginBottom: 24 }}>
       {tabs.map((tab) => {
         const active = tab.key === activeTab;
         return (
@@ -1125,12 +1125,12 @@ function TabBar({ activeTab, onChange }: { activeTab: (typeof tabs)[number]["key
             key={tab.key}
             onClick={() => onChange(tab.key)}
             style={{ 
-              padding: "12px 2px", 
+              padding: "10px 2px", 
               border: "none", 
               background: "transparent", 
               color: active ? "#000" : "#666", 
               fontWeight: active ? 700 : 500, 
-              fontSize: "1.05rem",
+              fontSize: "0.96rem",
               cursor: "pointer", 
               borderBottom: active ? "2px solid #000" : "2px solid transparent",
               transition: "all 0.2s"
@@ -1145,37 +1145,37 @@ function TabBar({ activeTab, onChange }: { activeTab: (typeof tabs)[number]["key
 }
 
 function Card({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
-  return <div style={{ background: "#fff", borderRadius: 20, padding: 24, border: "1px solid #f1f1f1", boxShadow: "0 4px 12px rgba(0,0,0,0.02)", ...style }}>{children}</div>;
+  return <div style={{ background: "#fff", borderRadius: 18, padding: 18, border: "1px solid #f1f1f1", boxShadow: "0 10px 20px rgba(16,36,42,0.04)", ...style }}>{children}</div>;
 }
 
 function Modal({ title, subtitle, onClose, children }: { title: string; subtitle: string; onClose: () => void; children: React.ReactNode; }) {
-  return <div style={{ position: "fixed", inset: 0, background: "rgba(17,39,45,0.42)", display: "grid", placeItems: "center", padding: 20, zIndex: 200 }}><div style={{ width: "min(92vw, 620px)", background: "linear-gradient(180deg, rgba(255,255,255,0.99), rgba(245,251,251,0.97))", borderRadius: 30, border: "1px solid var(--border-color)", boxShadow: "0 32px 70px rgba(17,39,45,0.18)" }}><div style={{ padding: "22px 24px 16px", borderBottom: "1px solid rgba(14,118,120,0.08)", display: "flex", justifyContent: "space-between", gap: 16 }}><div><div style={{ fontSize: "1.3rem", fontWeight: 800 }}>{title}</div><div style={{ color: "var(--text-secondary)", marginTop: 6 }}>{subtitle}</div></div><button onClick={onClose} style={{ border: "none", background: "transparent", color: "var(--text-secondary)", cursor: "pointer" }}><X size={20} /></button></div><div style={{ padding: 24 }}>{children}</div></div></div>;
+  return <div style={{ position: "fixed", inset: 0, background: "rgba(17,39,45,0.42)", display: "grid", placeItems: "center", padding: 18, zIndex: 200 }}><div style={{ width: "min(92vw, 560px)", background: "linear-gradient(180deg, rgba(255,255,255,0.99), rgba(245,251,251,0.97))", borderRadius: 24, border: "1px solid var(--border-color)", boxShadow: "0 26px 56px rgba(16,36,42,0.16)" }}><div style={{ padding: "18px 20px 14px", borderBottom: "1px solid rgba(14,118,120,0.08)", display: "flex", justifyContent: "space-between", gap: 16 }}><div><div style={{ fontSize: "1.15rem", fontWeight: 800 }}>{title}</div><div style={{ color: "var(--text-secondary)", marginTop: 6, fontSize: "0.92rem" }}>{subtitle}</div></div><button onClick={onClose} style={{ border: "none", background: "transparent", color: "var(--text-secondary)", cursor: "pointer" }}><X size={20} /></button></div><div style={{ padding: 20 }}>{children}</div></div></div>;
 }
 
-const metaChip: React.CSSProperties = { display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 12px", borderRadius: 999, background: "rgba(255,255,255,0.9)", border: "1px solid var(--border-color)", fontWeight: 800 };
-const pillBtn: React.CSSProperties = { padding: "12px 14px", borderRadius: 16, border: "1px solid var(--border-color)", background: "#fff", fontWeight: 800, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8, boxShadow: "0 12px 24px rgba(17,39,45,0.04)" };
-const panel: React.CSSProperties = { padding: "16px 18px", borderRadius: 20, background: "rgba(14,118,120,0.05)", border: "1px solid rgba(14,118,120,0.08)" };
+const metaChip: React.CSSProperties = { display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 10px", borderRadius: 999, background: "rgba(255,255,255,0.9)", border: "1px solid var(--border-color)", fontWeight: 700, fontSize: "0.82rem" };
+const pillBtn: React.CSSProperties = { padding: "10px 12px", borderRadius: 12, border: "1px solid var(--border-color)", background: "#fff", fontWeight: 700, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8, boxShadow: "0 10px 20px rgba(16,36,42,0.04)" };
+const panel: React.CSSProperties = { padding: "14px 16px", borderRadius: 18, background: "rgba(14,118,120,0.05)", border: "1px solid rgba(14,118,120,0.08)" };
 const label: React.CSSProperties = { color: "var(--text-secondary)", fontWeight: 700 };
-const inputStyle: React.CSSProperties = { width: "100%", padding: "12px 14px", borderRadius: 14, border: "1px solid var(--border-color)", background: "#fff", color: "#0f172a" };
-const actionPrimary: React.CSSProperties = { padding: "12px 16px", borderRadius: 14, border: "none", background: "#000", color: "#fff", fontWeight: 800, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8 };
-const actionSecondary: React.CSSProperties = { padding: "12px 16px", borderRadius: 14, border: "1px solid #eee", background: "#fff", color: "#000", fontWeight: 800, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8 };
+const inputStyle: React.CSSProperties = { width: "100%", padding: "11px 12px", borderRadius: 12, border: "1px solid var(--border-color)", background: "#fff", color: "#0f172a" };
+const actionPrimary: React.CSSProperties = { padding: "11px 14px", borderRadius: 12, border: "none", background: "#000", color: "#fff", fontWeight: 700, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8 };
+const actionSecondary: React.CSSProperties = { padding: "11px 14px", borderRadius: 12, border: "1px solid #eee", background: "#fff", color: "#000", fontWeight: 700, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8 };
 
-const quickActionCard: React.CSSProperties = { display: "flex", alignItems: "center", gap: 16, padding: "20px 24px", background: "#fff", borderRadius: 24, border: "1px solid #f1f1f1", boxShadow: "0 4px 12px rgba(0,0,0,0.02)", cursor: "pointer" };
-const iconCircle: React.CSSProperties = { width: 44, height: 44, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" };
-const dateBadgeMini: React.CSSProperties = { width: 42, height: 42, borderRadius: 10, background: "#fdf2f2", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", border: "1px solid #fee2e2" };
-const dateBadgeLarge: React.CSSProperties = { width: 54, height: 54, borderRadius: 14, background: "#fff", border: "1px solid #eee", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 10px rgba(0,0,0,0.03)" };
-const ghostBtn: React.CSSProperties = { flex: 1, padding: "12px", borderRadius: 12, background: "#f5f5f5", color: "#333", border: "none", fontWeight: 700, fontSize: "0.95rem", cursor: "pointer" };
-const tinyBtn: React.CSSProperties = { padding: "8px 12px", borderRadius: 10, background: "#f5f5f5", color: "#333", border: "none", fontWeight: 700, fontSize: "0.85rem", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 6 };
+const quickActionCard: React.CSSProperties = { display: "flex", alignItems: "center", gap: 14, padding: "16px 18px", background: "#fff", borderRadius: 20, border: "1px solid #f1f1f1", boxShadow: "0 10px 20px rgba(16,36,42,0.04)", cursor: "pointer" };
+const iconCircle: React.CSSProperties = { width: 40, height: 40, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" };
+const dateBadgeMini: React.CSSProperties = { width: 40, height: 40, borderRadius: 10, background: "#fdf2f2", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", border: "1px solid #fee2e2" };
+const dateBadgeLarge: React.CSSProperties = { width: 50, height: 50, borderRadius: 14, background: "#fff", border: "1px solid #eee", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 10px rgba(0,0,0,0.03)" };
+const ghostBtn: React.CSSProperties = { flex: 1, padding: "11px", borderRadius: 12, background: "#f5f5f5", color: "#333", border: "none", fontWeight: 700, fontSize: "0.92rem", cursor: "pointer" };
+const tinyBtn: React.CSSProperties = { padding: "7px 10px", borderRadius: 10, background: "#f5f5f5", color: "#333", border: "none", fontWeight: 700, fontSize: "0.82rem", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 6 };
 
-const iconCircleSmall: React.CSSProperties = { width: 32, height: 32, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" };
-const quickActionCardSmall: React.CSSProperties = { display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", background: "#fff", borderRadius: 16, border: "1px solid #f1f1f1", cursor: "pointer" };
-const questionBox: React.CSSProperties = { display: "flex", alignItems: "center", gap: 10, padding: "12px 14px", background: "#f9f9f9", borderRadius: 12, fontSize: "0.9rem", color: "#666", border: "1px solid #f0f0f0" };
-const blastIcon: React.CSSProperties = { position: "absolute", width: 36, height: 36, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 10px rgba(0,0,0,0.05)" };
-const systemMsgRow: React.CSSProperties = { display: "flex", alignItems: "center", gap: 14, padding: "12px 0" };
-const trafficRow: React.CSSProperties = { display: "flex", alignItems: "center", gap: 14, padding: "12px 0" };
+const iconCircleSmall: React.CSSProperties = { width: 30, height: 30, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" };
+const quickActionCardSmall: React.CSSProperties = { display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "#fff", borderRadius: 14, border: "1px solid #f1f1f1", cursor: "pointer" };
+const questionBox: React.CSSProperties = { display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", background: "#f9f9f9", borderRadius: 12, fontSize: "0.86rem", color: "#666", border: "1px solid #f0f0f0" };
+const blastIcon: React.CSSProperties = { position: "absolute", width: 34, height: 34, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 10px rgba(0,0,0,0.05)" };
+const systemMsgRow: React.CSSProperties = { display: "flex", alignItems: "center", gap: 12, padding: "10px 0" };
+const trafficRow: React.CSSProperties = { display: "flex", alignItems: "center", gap: 12, padding: "10px 0" };
 
-const embedCard: React.CSSProperties = { padding: 16, background: "#fff", border: "1px solid #f1f1f1", borderRadius: 16, display: "flex", alignItems: "center", gap: 12, cursor: "pointer" };
+const embedCard: React.CSSProperties = { padding: 14, background: "#fff", border: "1px solid #f1f1f1", borderRadius: 14, display: "flex", alignItems: "center", gap: 12, cursor: "pointer" };
 const embedCardActive: React.CSSProperties = { ...embedCard, border: "1px solid #ec4899", background: "rgba(236, 72, 153, 0.02)" };
 
-const inviteSidebarItem: React.CSSProperties = { padding: "8px 12px", borderRadius: 8, display: "flex", alignItems: "center", gap: 10, fontSize: "0.9rem", fontWeight: 600, color: "#666", cursor: "pointer" };
-const inviteCircle: React.CSSProperties = { position: "absolute", width: 44, height: 44, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", border: "4px solid #fff", boxShadow: "0 4px 12px rgba(0,0,0,0.08)" };
+const inviteSidebarItem: React.CSSProperties = { padding: "7px 10px", borderRadius: 8, display: "flex", alignItems: "center", gap: 10, fontSize: "0.86rem", fontWeight: 600, color: "#666", cursor: "pointer" };
+const inviteCircle: React.CSSProperties = { position: "absolute", width: 40, height: 40, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", border: "4px solid #fff", boxShadow: "0 4px 12px rgba(0,0,0,0.08)" };

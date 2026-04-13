@@ -1968,7 +1968,7 @@ function SettingsTab({
   }
 
   return (
-    <section style={{ display: 'grid', gridTemplateColumns: '180px 1fr', gap: 24 }}>
+    <section style={{ display: 'grid', gridTemplateColumns: '160px 1fr', gap: 20 }}>
       <aside style={{ display: 'grid', gap: 16, alignContent: 'start' }}>
         {SETTINGS_SECTIONS.map((item) => {
           const isActive = activeSection === item.id;
@@ -2080,11 +2080,11 @@ function ToggleChip({ active, onToggle }: { active: boolean; onToggle: () => voi
 }
 
 const panelStyle: React.CSSProperties = {
-  padding: 22,
-  borderRadius: 24,
+  padding: 18,
+  borderRadius: 20,
   background: '#fff',
   border: '1px solid rgba(148,163,184,0.18)',
-  boxShadow: '0 18px 42px rgba(17,39,45,0.05)',
+  boxShadow: '0 14px 30px rgba(16,36,42,0.05)',
 };
 
 const emptyPanelStyle: React.CSSProperties = {
@@ -2094,11 +2094,11 @@ const emptyPanelStyle: React.CSSProperties = {
 
 const fieldStyle: React.CSSProperties = {
   width: '100%',
-  minHeight: 46,
-  borderRadius: 14,
+  minHeight: 42,
+  borderRadius: 12,
   border: '1px solid rgba(148,163,184,0.22)',
-  padding: '0 14px',
-  fontSize: '0.95rem',
+  padding: '0 12px',
+  fontSize: '0.92rem',
   outline: 'none',
   color: '#111827',
   background: '#fff',
@@ -2116,11 +2116,11 @@ const searchShellStyle: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   gap: 10,
-  borderRadius: 14,
+  borderRadius: 12,
   border: '1px solid rgba(148,163,184,0.18)',
   background: '#fff',
-  padding: '0 14px',
-  minHeight: 46,
+  padding: '0 12px',
+  minHeight: 42,
 };
 
 const shellInputStyle: React.CSSProperties = {
@@ -2129,16 +2129,16 @@ const shellInputStyle: React.CSSProperties = {
   outline: 'none',
   background: 'transparent',
   color: '#111827',
-  fontSize: '0.95rem',
+  fontSize: '0.92rem',
 };
 
 const selectStyle: React.CSSProperties = {
-  minHeight: 42,
-  borderRadius: 12,
+  minHeight: 40,
+  borderRadius: 10,
   border: '1px solid rgba(148,163,184,0.18)',
   background: '#fff',
   color: '#475569',
-  padding: '0 12px',
+  padding: '0 10px',
   fontWeight: 600,
   outline: 'none',
 };
@@ -2148,20 +2148,20 @@ const listRowStyle: React.CSSProperties = {
   justifyContent: 'space-between',
   gap: 16,
   alignItems: 'center',
-  padding: '16px 18px',
-  borderRadius: 18,
+  padding: '14px 16px',
+  borderRadius: 16,
   background: '#fff',
   border: '1px solid rgba(148,163,184,0.18)',
 };
 
 const smallActionButtonStyle: React.CSSProperties = {
-  minHeight: '42px',
-  paddingInline: '16px',
+  minHeight: '40px',
+  paddingInline: '14px',
 };
 
 const iconActionButtonStyle: React.CSSProperties = {
-  width: 42,
-  height: 42,
+  width: 40,
+  height: 40,
   borderRadius: 12,
   border: '1px solid rgba(148,163,184,0.18)',
   background: '#fff',
@@ -2175,9 +2175,9 @@ const verifyButtonStyle: React.CSSProperties = {
   border: '1px solid rgba(245,158,11,0.4)',
   background: '#fff',
   color: '#d97706',
-  fontWeight: 800,
-  borderRadius: 12,
-  padding: '10px 14px',
+  fontWeight: 700,
+  borderRadius: 10,
+  padding: '9px 12px',
   display: 'inline-flex',
   alignItems: 'center',
   gap: 8,
@@ -2189,18 +2189,18 @@ const metricPillStyle: React.CSSProperties = {
   background: 'rgba(14,118,120,0.08)',
   color: 'var(--primary-color)',
   fontWeight: 700,
-  padding: '10px 14px',
+  padding: '8px 12px',
   display: 'inline-flex',
   alignItems: 'center',
 };
 
 const ghostButtonStyle: React.CSSProperties = {
-  borderRadius: 12,
+  borderRadius: 10,
   border: '1px solid rgba(148,163,184,0.18)',
   background: '#fff',
   color: '#64748b',
   fontWeight: 700,
-  padding: '9px 12px',
+  padding: '8px 11px',
   cursor: 'pointer',
 };
 
@@ -2211,8 +2211,8 @@ const manageLinkStyle: React.CSSProperties = {
   textDecoration: 'none',
   background: '#f9fafb',
   color: '#4b5563',
-  padding: '8px 12px',
-  borderRadius: 12,
+  padding: '7px 11px',
+  borderRadius: 10,
   fontWeight: 700,
 };
 
@@ -2220,8 +2220,8 @@ const tagButtonStyle: React.CSSProperties = {
   border: 'none',
   background: '#f3f4f6',
   color: '#9ca3af',
-  padding: '8px 12px',
-  borderRadius: 12,
+  padding: '7px 10px',
+  borderRadius: 10,
   fontWeight: 700,
 };
 
@@ -2233,14 +2233,14 @@ const metaRowStyle: React.CSSProperties = {
 
 const insightsGridStyle: React.CSSProperties = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-  gap: 16,
+  gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+  gap: 14,
 };
 
 const settingsGridStyle: React.CSSProperties = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-  gap: 14,
+  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+  gap: 12,
 };
 
 const settingsRowStyle: React.CSSProperties = {
@@ -2248,7 +2248,7 @@ const settingsRowStyle: React.CSSProperties = {
   justifyContent: 'space-between',
   gap: 16,
   alignItems: 'center',
-  padding: '16px 18px',
+  padding: '14px 16px',
   borderBottom: '1px solid rgba(148,163,184,0.18)',
 };
 
@@ -2257,7 +2257,7 @@ const tagPillStyle: React.CSSProperties = {
   background: 'rgba(14,118,120,0.08)',
   color: 'var(--primary-color)',
   borderRadius: 999,
-  padding: '8px 12px',
+  padding: '7px 10px',
   fontWeight: 700,
   cursor: 'pointer',
 };
@@ -2268,7 +2268,7 @@ function billingChipStyle(active: boolean): React.CSSProperties {
     background: active ? '#fff' : 'transparent',
     color: active ? '#111827' : '#64748b',
     borderRadius: 10,
-    padding: '8px 12px',
+    padding: '7px 10px',
     fontWeight: 700,
     cursor: 'pointer',
     boxShadow: active ? '0 1px 2px rgba(15,23,42,0.08)' : 'none',
@@ -2282,7 +2282,7 @@ function statusToggleStyle(active: boolean): React.CSSProperties {
     background: active ? 'rgba(34,197,94,0.12)' : '#fff',
     color: active ? '#166534' : '#64748b',
     fontWeight: 700,
-    padding: '9px 12px',
+    padding: '8px 11px',
     cursor: 'pointer',
   };
 }

@@ -19,7 +19,7 @@ export default function EventCard({ event }: EventProps) {
       <div
         style={{
           background: 'linear-gradient(180deg, rgba(255,255,255,0.98), rgba(244,251,251,0.96))',
-          borderRadius: '28px',
+          borderRadius: '24px',
           overflow: 'hidden',
           border: '1px solid var(--border-color)',
           transition: 'transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease',
@@ -27,23 +27,23 @@ export default function EventCard({ event }: EventProps) {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          boxShadow: '0 18px 36px rgba(17,39,45,0.06)',
+          boxShadow: '0 14px 28px rgba(16,36,42,0.06)',
         }}
         onMouseEnter={(eventTarget) => {
-          eventTarget.currentTarget.style.transform = 'translateY(-4px)';
-          eventTarget.currentTarget.style.boxShadow = '0 24px 44px rgba(17,39,45,0.1)';
+          eventTarget.currentTarget.style.transform = 'translateY(-3px)';
+          eventTarget.currentTarget.style.boxShadow = '0 20px 36px rgba(16,36,42,0.09)';
           eventTarget.currentTarget.style.borderColor = 'var(--border-strong)';
         }}
         onMouseLeave={(eventTarget) => {
           eventTarget.currentTarget.style.transform = 'translateY(0)';
-          eventTarget.currentTarget.style.boxShadow = '0 18px 36px rgba(17,39,45,0.06)';
+          eventTarget.currentTarget.style.boxShadow = '0 14px 28px rgba(16,36,42,0.06)';
           eventTarget.currentTarget.style.borderColor = 'var(--border-color)';
         }}
       >
         <div
           style={{
             width: '100%',
-            height: '190px',
+            height: '170px',
             backgroundColor: 'var(--teal-050)',
             position: 'relative',
             overflow: 'hidden',
@@ -60,9 +60,9 @@ export default function EventCard({ event }: EventProps) {
               style={{
                 background: 'rgba(255,255,255,0.95)',
                 backdropFilter: 'blur(10px)',
-                padding: '7px 12px',
+                padding: '6px 10px',
                 borderRadius: '999px',
-                fontSize: '12px',
+                fontSize: '11px',
                 fontWeight: 800,
                 color: 'var(--primary-color)',
                 border: '1px solid var(--border-color)',
@@ -73,20 +73,20 @@ export default function EventCard({ event }: EventProps) {
           </div>
         </div>
 
-        <div style={{ padding: '22px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <div style={{ padding: '18px', flex: 1, display: 'flex', flexDirection: 'column' }}>
           <div
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
               alignSelf: 'flex-start',
-              padding: '8px 12px',
+              padding: '7px 11px',
               borderRadius: '999px',
               background: 'var(--primary-soft)',
               color: 'var(--primary-color)',
               fontWeight: 800,
-              fontSize: '0.78rem',
-              marginBottom: '14px',
+              fontSize: '0.72rem',
+              marginBottom: '12px',
             }}
           >
             {event.is_online ? 'Online event' : 'In-person event'}
@@ -94,9 +94,9 @@ export default function EventCard({ event }: EventProps) {
 
           <h3
             style={{
-              fontSize: '1.35rem',
+              fontSize: '1.18rem',
               fontWeight: 800,
-              marginBottom: '14px',
+              marginBottom: '12px',
               color: 'var(--text-primary)',
               letterSpacing: '-0.02em',
               display: '-webkit-box',
@@ -108,7 +108,7 @@ export default function EventCard({ event }: EventProps) {
             {event.title}
           </h3>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: 'auto' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto' }}>
             <div style={metaRowStyle}>
               <Calendar size={15} strokeWidth={2} color="var(--primary-color)" />
               <span>
@@ -137,8 +137,8 @@ export default function EventCard({ event }: EventProps) {
 const metaRowStyle: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
-  gap: '10px',
+  gap: '8px',
   color: 'var(--text-secondary)',
-  fontSize: '0.92rem',
+  fontSize: '0.88rem',
   fontWeight: 600,
 };

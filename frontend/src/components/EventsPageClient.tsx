@@ -811,13 +811,13 @@ export default function EventsPageClient({
           'radial-gradient(circle at 12% 10%, rgba(14,118,120,0.1), transparent 22%), linear-gradient(180deg, #ffffff 0%, #f5fbfb 100%)',
       }}
     >
-      <section className="page-shell" style={{ paddingTop: '32px', paddingBottom: '64px' }}>
+      <section className="page-shell" style={{ paddingTop: '30px', paddingBottom: '60px' }}>
         <div
           className="surface-panel"
           style={{
-            borderRadius: '26px',
-            padding: '20px',
-            marginBottom: '20px',
+            borderRadius: '24px',
+            padding: '18px',
+            marginBottom: '18px',
             background:
               'linear-gradient(135deg, rgba(14,118,120,0.08), rgba(255,255,255,0.96) 52%, rgba(244,251,251,0.98))',
           }}
@@ -827,20 +827,20 @@ export default function EventsPageClient({
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'flex-end',
-              gap: '14px',
+              gap: '12px',
               flexWrap: 'wrap',
             }}
           >
             <div style={{ display: 'grid', gap: '8px' }}>
-              <div className="eyebrow" style={{ width: 'fit-content', padding: '8px 12px', fontSize: '0.8rem' }}>
-                <CalendarDays size={14} />
+              <div className="eyebrow" style={{ width: 'fit-content', padding: '7px 11px', fontSize: '0.78rem' }}>
+                <CalendarDays size={13} />
                 {variant === 'discover' ? 'Discover events' : mode === 'personal' ? 'Your timeline' : 'Event timeline'}
               </div>
               <div>
                 <h1
                   style={{
                     margin: 0,
-                    fontSize: 'clamp(2.05rem, 4vw, 3.2rem)',
+                    fontSize: 'clamp(1.95rem, 3.8vw, 3rem)',
                     lineHeight: 0.95,
                     fontWeight: 800,
                     color: 'var(--text-primary)',
@@ -853,9 +853,9 @@ export default function EventsPageClient({
                   style={{
                     margin: '10px 0 0',
                     color: 'var(--text-secondary)',
-                    fontSize: '0.94rem',
+                    fontSize: '0.92rem',
                     fontWeight: 500,
-                    maxWidth: '600px',
+                    maxWidth: '560px',
                   }}
                 >
                   {variant === 'discover'
@@ -869,12 +869,12 @@ export default function EventsPageClient({
 
             <div
               style={{
-                padding: '4px',
-                borderRadius: '14px',
+                padding: '3px',
+                borderRadius: '12px',
                 background: 'rgba(255,255,255,0.88)',
                 border: '1px solid var(--border-color)',
                 display: 'inline-flex',
-                boxShadow: '0 14px 28px rgba(17,39,45,0.05)',
+                boxShadow: '0 12px 24px rgba(17,39,45,0.05)',
               }}
             >
               {(['upcoming', 'past'] as const).map((tab) => {
@@ -884,14 +884,14 @@ export default function EventsPageClient({
                     key={tab}
                     onClick={() => setActiveTab(tab)}
                     style={{
-                      padding: '8px 16px',
-                      borderRadius: '12px',
+                      padding: '8px 14px',
+                      borderRadius: '10px',
                       border: active ? '1px solid var(--border-strong)' : '1px solid transparent',
                       background: active ? 'var(--primary-color)' : 'transparent',
                       color: active ? '#ffffff' : 'var(--text-secondary)',
                       fontWeight: 800,
                       cursor: 'pointer',
-                      fontSize: '0.84rem',
+                      fontSize: '0.82rem',
                       boxShadow: active ? '0 12px 24px rgba(14,118,120,0.22)' : 'none',
                       transition: 'all 0.2s ease',
                     }}

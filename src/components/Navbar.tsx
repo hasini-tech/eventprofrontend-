@@ -21,24 +21,24 @@ import {
 
 const linkStyle: React.CSSProperties = {
   color: 'var(--text-secondary)',
-  fontSize: '0.95rem',
+  fontSize: '0.92rem',
   fontWeight: 700,
   display: 'inline-flex',
   alignItems: 'center',
-  gap: 8,
+  gap: 7,
 };
 
 const iconButtonStyle: React.CSSProperties = {
-  width: '44px',
-  height: '44px',
-  borderRadius: '14px',
+  width: '40px',
+  height: '40px',
+  borderRadius: '12px',
   border: '1px solid var(--border-color)',
   background: 'rgba(255,255,255,0.9)',
   color: 'var(--text-secondary)',
   display: 'grid',
   placeItems: 'center',
   cursor: 'pointer',
-  boxShadow: '0 12px 26px rgba(17,39,45,0.05)',
+  boxShadow: '0 10px 20px rgba(16,36,42,0.05)',
 };
 
 const Navbar = () => {
@@ -101,48 +101,48 @@ const Navbar = () => {
         position: 'sticky',
         top: 0,
         zIndex: 100,
-        padding: '14px 0',
+        padding: '12px 0',
         backdropFilter: 'blur(20px)',
-        background: 'rgba(255, 255, 255, 0.88)',
+        background: 'rgba(255, 255, 255, 0.9)',
         borderBottom: '1px solid var(--border-color)',
       }}
     >
       <div
         className="page-shell"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '20px',
-        }}
-      >
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '16px',
+          }}
+        >
         <Link
           href="/"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '12px',
+            gap: '10px',
             minWidth: 'fit-content',
           }}
         >
           <div
             style={{
-              width: '42px',
-              height: '42px',
-              borderRadius: '14px',
+              width: '38px',
+              height: '38px',
+              borderRadius: '12px',
               background: 'linear-gradient(135deg, var(--primary-color), var(--teal-700))',
               color: '#fff',
               display: 'grid',
               placeItems: 'center',
               fontWeight: 800,
-              boxShadow: '0 16px 30px rgba(14,118,120,0.22)',
+              boxShadow: '0 14px 24px rgba(14,118,120,0.18)',
             }}
           >
             E
           </div>
           <div style={{ display: 'grid', gap: '2px' }}>
-            <span style={{ fontSize: '1rem', fontWeight: 800, letterSpacing: '-0.03em' }}>Evently</span>
-            <span style={{ fontSize: '0.74rem', color: 'var(--text-tertiary)', fontWeight: 700 }}>
+            <span style={{ fontSize: '0.98rem', fontWeight: 800, letterSpacing: '-0.03em' }}>Evently</span>
+            <span style={{ fontSize: '0.7rem', color: 'var(--text-tertiary)', fontWeight: 700 }}>
               Events made simple
             </span>
           </div>
@@ -155,10 +155,10 @@ const Navbar = () => {
             alignItems: 'center',
             justifyContent: 'space-between',
             flex: 1,
-            gap: '22px',
+            gap: '18px',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '18px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
             <Link href="/events" style={linkStyle}>
               <Ticket size={18} strokeWidth={2} />
               Events
@@ -176,20 +176,20 @@ const Navbar = () => {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginLeft: 'auto' }}>
             <div
               style={{
-                padding: '10px 14px',
-                borderRadius: '14px',
+                padding: '8px 12px',
+                borderRadius: '12px',
                 border: '1px solid var(--border-color)',
                 background: 'rgba(255,255,255,0.9)',
                 color: 'var(--text-secondary)',
-                fontWeight: 800,
-                fontSize: '0.9rem',
-                boxShadow: '0 12px 26px rgba(17,39,45,0.05)',
+                fontWeight: 700,
+                fontSize: '0.84rem',
+                boxShadow: '0 10px 20px rgba(16,36,42,0.05)',
               }}
             >
               {mounted ? formattedTime : 'Loading...'}
             </div>
 
-            <button onClick={handleCreateClick} className="primary-button" style={{ minHeight: '44px' }}>
+            <button onClick={handleCreateClick} className="primary-button" style={{ minHeight: '40px' }}>
               <CalendarPlus2 size={18} />
               Create Event
             </button>
@@ -206,35 +206,35 @@ const Navbar = () => {
                     display: 'flex',
                     alignItems: 'center',
                     gap: '10px',
-                    padding: '4px 6px 4px 4px',
+                    padding: '3px 5px 3px 4px',
                     borderRadius: '999px',
                     border: '1px solid var(--border-color)',
                     background: 'rgba(255,255,255,0.95)',
                     cursor: 'pointer',
-                    boxShadow: '0 12px 26px rgba(17,39,45,0.06)',
+                    boxShadow: '0 10px 20px rgba(16,36,42,0.05)',
                   }}
                 >
-                  <div style={{ ...iconButtonStyle, width: '36px', height: '36px', borderRadius: '50%', boxShadow: 'none' }}>
+                  <div style={{ ...iconButtonStyle, width: '34px', height: '34px', borderRadius: '50%', boxShadow: 'none' }}>
                     <Bell size={17} />
                   </div>
                   {user.profile_image ? (
                     <img
                       src={user.profile_image}
                       alt="profile"
-                      style={{ width: '38px', height: '38px', borderRadius: '50%', objectFit: 'cover' }}
+                      style={{ width: '34px', height: '34px', borderRadius: '50%', objectFit: 'cover' }}
                     />
                   ) : (
                     <div
                       style={{
-                        width: '38px',
-                        height: '38px',
+                        width: '34px',
+                        height: '34px',
                         borderRadius: '50%',
                         background: 'linear-gradient(135deg, var(--primary-color), var(--teal-700))',
                         display: 'grid',
                         placeItems: 'center',
                         color: 'white',
                         fontWeight: 800,
-                        fontSize: '0.9rem',
+                        fontSize: '0.85rem',
                       }}
                     >
                       {user.name?.[0]?.toUpperCase() || <User size={18} />}
@@ -247,12 +247,12 @@ const Navbar = () => {
                     style={{
                       position: 'absolute',
                       right: 0,
-                      marginTop: '10px',
-                      width: '270px',
+                      marginTop: '8px',
+                      width: '250px',
                       background: 'rgba(255,255,255,0.98)',
-                      borderRadius: '24px',
+                      borderRadius: '20px',
                       border: '1px solid var(--border-color)',
-                      boxShadow: '0 30px 60px rgba(17,39,45,0.12)',
+                      boxShadow: '0 24px 48px rgba(16,36,42,0.12)',
                       overflow: 'hidden',
                       zIndex: 30,
                     }}
@@ -260,8 +260,8 @@ const Navbar = () => {
                     <div
                       style={{
                         display: 'flex',
-                        gap: '12px',
-                        padding: '18px',
+                        gap: '10px',
+                        padding: '16px',
                         borderBottom: '1px solid rgba(14,118,120,0.08)',
                         background: 'linear-gradient(180deg, rgba(14,118,120,0.06), rgba(255,255,255,0.9))',
                       }}
@@ -270,13 +270,13 @@ const Navbar = () => {
                         <img
                           src={user.profile_image}
                           alt="profile"
-                          style={{ width: '46px', height: '46px', borderRadius: '50%', objectFit: 'cover' }}
+                          style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover' }}
                         />
                       ) : (
                         <div
                           style={{
-                            width: '46px',
-                            height: '46px',
+                            width: '42px',
+                            height: '42px',
                             borderRadius: '50%',
                             background: 'linear-gradient(135deg, var(--primary-color), var(--teal-700))',
                             display: 'grid',
@@ -289,8 +289,8 @@ const Navbar = () => {
                         </div>
                       )}
                       <div style={{ lineHeight: 1.3 }}>
-                        <div style={{ fontWeight: 800, fontSize: '1rem' }}>{user.name}</div>
-                        <div style={{ color: 'var(--text-secondary)', fontSize: '0.88rem' }}>{user.email}</div>
+                        <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>{user.name}</div>
+                        <div style={{ color: 'var(--text-secondary)', fontSize: '0.82rem' }}>{user.email}</div>
                       </div>
                     </div>
 
@@ -321,10 +321,10 @@ const Navbar = () => {
               </div>
             ) : (
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <Link href="/login" className="secondary-button" style={{ minHeight: '44px' }}>
+                <Link href="/login" className="secondary-button" style={{ minHeight: '40px' }}>
                   Log in
                 </Link>
-                <Link href="/signup" className="primary-button" style={{ minHeight: '44px' }}>
+                <Link href="/signup" className="primary-button" style={{ minHeight: '40px' }}>
                   Get Started
                 </Link>
               </div>
@@ -358,11 +358,11 @@ const Navbar = () => {
           <div
             className="glass-panel"
             style={{
-              borderRadius: '26px',
-              padding: '18px',
+              borderRadius: '22px',
+              padding: '14px',
               display: 'flex',
               flexDirection: 'column',
-              gap: '10px',
+              gap: '8px',
             }}
           >
             <Link href="/events" onClick={() => setIsMenuOpen(false)} style={mobileLinkStyle}>
@@ -422,21 +422,21 @@ const Navbar = () => {
 };
 
 const menuItemStyle: React.CSSProperties = {
-  padding: '12px 14px',
+  padding: '10px 12px',
   display: 'flex',
   gap: '10px',
   alignItems: 'center',
-  borderRadius: '16px',
+  borderRadius: '14px',
   background: 'transparent',
   color: 'var(--text-primary)',
-  fontSize: '0.95rem',
+  fontSize: '0.92rem',
   fontWeight: 700,
   cursor: 'pointer',
 };
 
 const mobileLinkStyle: React.CSSProperties = {
-  padding: '14px 16px',
-  borderRadius: '16px',
+  padding: '12px 14px',
+  borderRadius: '14px',
   border: '1px solid var(--border-color)',
   background: 'rgba(255,255,255,0.92)',
   color: 'var(--text-primary)',

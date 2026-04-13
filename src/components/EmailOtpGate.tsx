@@ -227,7 +227,7 @@ export default function EmailOtpGate({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '32px 16px',
+        padding: '28px 16px',
         background:
           'radial-gradient(circle at 14% 18%, rgba(14,118,120,0.12), transparent 26%), radial-gradient(circle at 84% 12%, rgba(14,118,120,0.08), transparent 28%), linear-gradient(180deg, #ffffff 0%, #f5fbfb 100%)',
       }}
@@ -238,12 +238,12 @@ export default function EmailOtpGate({
         transition={{ duration: 0.32, ease: 'easeOut' }}
         style={{
           width: '100%',
-          maxWidth: '620px',
+          maxWidth: '560px',
           background: 'linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,251,251,0.98))',
-          borderRadius: '32px',
+          borderRadius: '28px',
           border: '1px solid var(--border-color)',
-          boxShadow: '0 32px 70px rgba(17,39,45,0.1)',
-          padding: '22px 20px 24px',
+          boxShadow: '0 26px 56px rgba(16,36,42,0.1)',
+          padding: '20px 18px 20px',
         }}
       >
         {step === 'code' && (
@@ -260,7 +260,7 @@ export default function EmailOtpGate({
           </button>
         )}
 
-        <div style={{ padding: '18px 10px 8px', display: 'grid', gap: '14px' }}>
+        <div style={{ padding: '14px 10px 6px', display: 'grid', gap: '12px' }}>
           {eyebrow ? (
             <div className="eyebrow" style={{ width: 'fit-content' }}>
               <ShieldCheck size={16} />
@@ -272,7 +272,7 @@ export default function EmailOtpGate({
             <h1
               style={{
                 margin: '0 0 12px',
-                fontSize: 'clamp(2.2rem, 5vw, 3rem)',
+                fontSize: 'clamp(2rem, 4.5vw, 2.8rem)',
                 fontWeight: 800,
                 color: 'var(--text-primary)',
                 letterSpacing: '-0.05em',
@@ -285,9 +285,9 @@ export default function EmailOtpGate({
               style={{
                 margin: 0,
                 color: 'var(--text-secondary)',
-                fontSize: '1.02rem',
-                lineHeight: 1.7,
-                maxWidth: '470px',
+                fontSize: '0.98rem',
+                lineHeight: 1.65,
+                maxWidth: '440px',
               }}
             >
               {step === 'email' ? emailDescription : enterCodeCopy}
@@ -310,9 +310,9 @@ export default function EmailOtpGate({
         {error && (
           <div
             style={{
-              margin: '18px 10px 0',
-              padding: '12px 14px',
-              borderRadius: '16px',
+              margin: '14px 10px 0',
+              padding: '11px 12px',
+              borderRadius: '14px',
               background: 'rgba(255, 244, 244, 0.96)',
               border: '1px solid rgba(220, 38, 38, 0.14)',
               color: '#b91c1c',
@@ -324,7 +324,7 @@ export default function EmailOtpGate({
         )}
 
         {step === 'email' ? (
-          <form onSubmit={handleSendCode} style={{ padding: '28px 10px 4px' }}>
+          <form onSubmit={handleSendCode} style={{ padding: '22px 10px 4px' }}>
             <label
               style={{
                 display: 'block',
@@ -351,17 +351,17 @@ export default function EmailOtpGate({
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="you@example.com"
-                style={{
-                  width: '100%',
-                  padding: '18px 18px 18px 46px',
-                  borderRadius: '18px',
-                  border: '1px solid var(--border-color)',
-                  background: 'rgba(255,255,255,0.96)',
-                  color: 'var(--text-primary)',
-                  fontSize: '1rem',
-                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.7)',
-                }}
-              />
+                  style={{
+                    width: '100%',
+                    padding: '15px 16px 15px 44px',
+                    borderRadius: '16px',
+                    border: '1px solid var(--border-color)',
+                    background: 'rgba(255,255,255,0.96)',
+                    color: 'var(--text-primary)',
+                    fontSize: '0.96rem',
+                    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.7)',
+                  }}
+                />
             </div>
 
             <button type="submit" disabled={loading} className="primary-button" style={submitButtonStyle}>
@@ -369,12 +369,12 @@ export default function EmailOtpGate({
             </button>
           </form>
         ) : (
-          <form onSubmit={handleVerifyCode} style={{ padding: '28px 10px 4px' }}>
+          <form onSubmit={handleVerifyCode} style={{ padding: '22px 10px 4px' }}>
             <div
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(6, minmax(0, 1fr))',
-                gap: '12px',
+                gap: '10px',
               }}
             >
               {code.map((digit, index) => (
@@ -388,24 +388,24 @@ export default function EmailOtpGate({
                   value={digit}
                   onChange={(event) => handleDigitChange(index, event.target.value)}
                   onKeyDown={(event) => handleDigitKeyDown(index, event)}
-                  style={{
-                    width: '100%',
-                    aspectRatio: '1 / 1',
-                    borderRadius: '18px',
-                    border: digit ? '1px solid var(--border-strong)' : '1px solid var(--border-color)',
-                    background: digit ? 'rgba(14,118,120,0.06)' : '#fff',
-                    textAlign: 'center',
-                    fontSize: '1.85rem',
-                    color: 'var(--text-primary)',
-                    fontWeight: 700,
-                  }}
+                    style={{
+                      width: '100%',
+                      aspectRatio: '1 / 1',
+                      borderRadius: '16px',
+                      border: digit ? '1px solid var(--border-strong)' : '1px solid var(--border-color)',
+                      background: digit ? 'rgba(14,118,120,0.06)' : '#fff',
+                      textAlign: 'center',
+                      fontSize: '1.65rem',
+                      color: 'var(--text-primary)',
+                      fontWeight: 700,
+                    }}
                 />
               ))}
             </div>
 
             <div
               style={{
-                marginTop: '22px',
+                marginTop: '18px',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -457,9 +457,9 @@ export default function EmailOtpGate({
 }
 
 const backButtonStyle: React.CSSProperties = {
-  width: '44px',
-  height: '44px',
-  borderRadius: '999px',
+  width: '40px',
+  height: '40px',
+  borderRadius: '50%',
   border: '1px solid var(--border-color)',
   background: '#fff',
   display: 'grid',
@@ -469,28 +469,29 @@ const backButtonStyle: React.CSSProperties = {
 };
 
 const infoBoxStyle: React.CSSProperties = {
-  margin: '18px 10px 0',
-  padding: '12px 14px',
-  borderRadius: '16px',
+  margin: '14px 10px 0',
+  padding: '11px 12px',
+  borderRadius: '14px',
   background: 'rgba(14,118,120,0.08)',
   border: '1px solid var(--border-color)',
   color: 'var(--primary-color)',
-  fontSize: '0.95rem',
+  fontSize: '0.92rem',
   fontWeight: 700,
 };
 
 const submitButtonStyle: React.CSSProperties = {
-  marginTop: '22px',
+  marginTop: '18px',
   width: '100%',
 };
 
 const softButtonStyle: React.CSSProperties = {
-  padding: '12px 14px',
-  borderRadius: '14px',
+  padding: '11px 13px',
+  borderRadius: '12px',
   border: '1px solid var(--border-color)',
   background: '#fff',
   color: 'var(--text-secondary)',
   fontWeight: 700,
+  fontSize: '0.92rem',
   cursor: 'pointer',
   display: 'inline-flex',
   alignItems: 'center',

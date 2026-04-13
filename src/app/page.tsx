@@ -43,7 +43,7 @@ function HeroVisual({ event }: { event: EventHighlight | null }) {
     <div
       style={{
         position: 'relative',
-        width: 'min(620px, 100%)',
+        width: 'min(560px, 100%)',
         aspectRatio: '1 / 1',
         marginInline: 'auto',
       }}
@@ -55,7 +55,7 @@ function HeroVisual({ event }: { event: EventHighlight | null }) {
           borderRadius: '999px',
           background:
             'radial-gradient(circle at 50% 28%, rgba(14,118,120,0.3), rgba(14,118,120,0.14) 34%, rgba(255,255,255,0.94) 76%), linear-gradient(135deg, rgba(255,248,240,0.96), rgba(240,252,252,0.98))',
-          boxShadow: '0 40px 80px rgba(17,39,45,0.08)',
+          boxShadow: '0 34px 70px rgba(16,36,42,0.08)',
           overflow: 'hidden',
         }}
       />
@@ -71,18 +71,18 @@ function HeroVisual({ event }: { event: EventHighlight | null }) {
         <div
           style={{
             width: '100%',
-            maxWidth: '320px',
-            borderRadius: '38px',
+            maxWidth: '300px',
+            borderRadius: '32px',
             background: 'rgba(255,255,255,0.95)',
             border: '1px solid rgba(255,255,255,0.8)',
-            boxShadow: '0 34px 60px rgba(17,39,45,0.16)',
+            boxShadow: '0 28px 50px rgba(16,36,42,0.14)',
             overflow: 'hidden',
             transform: 'rotate(-6deg)',
           }}
         >
           <div
             style={{
-              padding: '14px 16px 10px',
+              padding: '12px 14px 8px',
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
@@ -94,8 +94,8 @@ function HeroVisual({ event }: { event: EventHighlight | null }) {
             <span>9:41</span>
             <div
               style={{
-                width: '92px',
-                height: '22px',
+                width: '84px',
+                height: '20px',
                 borderRadius: '999px',
                 background: '#101820',
               }}
@@ -106,7 +106,7 @@ function HeroVisual({ event }: { event: EventHighlight | null }) {
           <div style={{ padding: '0 14px 14px' }}>
             <div
               style={{
-                borderRadius: '28px',
+                borderRadius: '24px',
                 overflow: 'hidden',
                 background: 'rgba(14,118,120,0.08)',
                 border: '1px solid var(--border-color)',
@@ -115,16 +115,16 @@ function HeroVisual({ event }: { event: EventHighlight | null }) {
               <img
                 src={coverImage}
                 alt={eventTitle}
-                style={{ width: '100%', height: '220px', objectFit: 'cover' }}
+                style={{ width: '100%', height: '200px', objectFit: 'cover' }}
               />
             </div>
 
-            <div style={{ padding: '18px 6px 6px', display: 'grid', gap: '12px' }}>
+            <div style={{ padding: '16px 6px 6px', display: 'grid', gap: '10px' }}>
               <div>
                 <h3
                   style={{
                     margin: 0,
-                    fontSize: '1.4rem',
+                    fontSize: '1.25rem',
                     lineHeight: 1.05,
                     letterSpacing: '-0.04em',
                     color: 'var(--text-primary)',
@@ -132,12 +132,12 @@ function HeroVisual({ event }: { event: EventHighlight | null }) {
                 >
                   {eventTitle}
                 </h3>
-                <p style={{ margin: '6px 0 0', color: 'var(--text-secondary)', fontSize: '0.88rem' }}>
+                <p style={{ margin: '6px 0 0', color: 'var(--text-secondary)', fontSize: '0.84rem' }}>
                   Hosted with Evently
                 </p>
               </div>
 
-              <div style={{ display: 'grid', gap: '9px', color: 'var(--text-secondary)' }}>
+              <div style={{ display: 'grid', gap: '8px', color: 'var(--text-secondary)' }}>
                 <div style={detailRow}>
                   <CalendarDays size={15} color="var(--primary-color)" />
                   <span>{dateLabel}</span>
@@ -162,8 +162,8 @@ function HeroVisual({ event }: { event: EventHighlight | null }) {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   gap: '12px',
-                  padding: '12px 14px',
-                  borderRadius: '18px',
+                  padding: '10px 12px',
+                  borderRadius: '16px',
                   background: 'rgba(14,118,120,0.06)',
                   border: '1px solid rgba(14,118,120,0.08)',
                 }}
@@ -174,8 +174,8 @@ function HeroVisual({ event }: { event: EventHighlight | null }) {
                       <div
                         key={index}
                         style={{
-                          width: '26px',
-                          height: '26px',
+                        width: '24px',
+                        height: '24px',
                           borderRadius: '50%',
                           background: color,
                           border: '2px solid white',
@@ -185,10 +185,10 @@ function HeroVisual({ event }: { event: EventHighlight | null }) {
                     ))}
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+                    <div style={{ fontSize: '0.76rem', fontWeight: 800, color: 'var(--text-primary)' }}>
                       {guestLabel}
                     </div>
-                    <div style={{ fontSize: '0.74rem', color: 'var(--text-tertiary)' }}>Already interested</div>
+                    <div style={{ fontSize: '0.7rem', color: 'var(--text-tertiary)' }}>Already interested</div>
                   </div>
                 </div>
 
@@ -196,12 +196,12 @@ function HeroVisual({ event }: { event: EventHighlight | null }) {
                   type="button"
                   style={{
                     border: 'none',
-                    borderRadius: '14px',
-                    padding: '10px 16px',
+                    borderRadius: '12px',
+                    padding: '9px 14px',
                     background: 'linear-gradient(135deg, var(--primary-color), var(--teal-800))',
                     color: '#fff',
-                    fontWeight: 800,
-                    boxShadow: '0 14px 26px rgba(14,118,120,0.22)',
+                    fontWeight: 700,
+                    boxShadow: '0 12px 22px rgba(14,118,120,0.18)',
                     cursor: 'pointer',
                   }}
                 >
@@ -218,11 +218,11 @@ function HeroVisual({ event }: { event: EventHighlight | null }) {
           position: 'absolute',
           left: '3%',
           bottom: '10%',
-          width: '110px',
-          height: '62px',
+          width: '96px',
+          height: '54px',
           borderRadius: '999px',
-          border: '8px solid rgba(14,118,120,0.16)',
-          boxShadow: '0 20px 36px rgba(17,39,45,0.1)',
+          border: '7px solid rgba(14,118,120,0.14)',
+          boxShadow: '0 16px 28px rgba(16,36,42,0.08)',
           transform: 'rotate(-22deg)',
         }}
       />
@@ -231,11 +231,11 @@ function HeroVisual({ event }: { event: EventHighlight | null }) {
           position: 'absolute',
           right: '8%',
           bottom: '8%',
-          width: '134px',
-          height: '76px',
+          width: '118px',
+          height: '66px',
           borderRadius: '999px',
-          border: '10px solid rgba(14,118,120,0.12)',
-          boxShadow: '0 20px 36px rgba(17,39,45,0.08)',
+          border: '8px solid rgba(14,118,120,0.1)',
+          boxShadow: '0 16px 28px rgba(16,36,42,0.06)',
           transform: 'rotate(21deg)',
         }}
       />
@@ -244,16 +244,16 @@ function HeroVisual({ event }: { event: EventHighlight | null }) {
           position: 'absolute',
           right: '6%',
           top: '26%',
-          padding: '14px 16px',
-          borderRadius: '24px',
+          padding: '12px 14px',
+          borderRadius: '20px',
           background: 'rgba(255,255,255,0.94)',
           border: '1px solid rgba(255,255,255,0.8)',
-          boxShadow: '0 18px 36px rgba(17,39,45,0.1)',
+          boxShadow: '0 16px 30px rgba(16,36,42,0.08)',
           transform: 'rotate(8deg)',
         }}
       >
-        <div style={{ color: 'var(--primary-color)', fontSize: '0.8rem', fontWeight: 800 }}>EVENT</div>
-        <div style={{ fontSize: '2rem', lineHeight: 1, fontWeight: 800, color: 'var(--text-primary)' }}>
+        <div style={{ color: 'var(--primary-color)', fontSize: '0.74rem', fontWeight: 800 }}>EVENT</div>
+        <div style={{ fontSize: '1.7rem', lineHeight: 1, fontWeight: 800, color: 'var(--text-primary)' }}>
           23
         </div>
       </div>
@@ -339,17 +339,17 @@ export default function Landing() {
           'radial-gradient(circle at 10% 14%, rgba(104, 180, 204, 0.14), transparent 24%), radial-gradient(circle at 32% 18%, rgba(255, 218, 180, 0.16), transparent 26%), radial-gradient(circle at 84% 10%, rgba(14,118,120,0.08), transparent 22%), linear-gradient(180deg, #fffdfb 0%, #ffffff 46%, #f5fbfb 100%)',
       }}
     >
-      <section className="page-shell" style={{ paddingTop: '28px', paddingBottom: '80px' }}>
+      <section className="page-shell" style={{ paddingTop: '24px', paddingBottom: '64px' }}>
         <div
           style={{
             display: 'flex',
             justifyContent: 'flex-end',
-            gap: '18px',
+            gap: '14px',
             alignItems: 'center',
             color: 'var(--text-tertiary)',
-            fontSize: '0.92rem',
+            fontSize: '0.9rem',
             fontWeight: 600,
-            marginBottom: '26px',
+            marginBottom: '20px',
             flexWrap: 'wrap',
           }}
         >
@@ -366,8 +366,8 @@ export default function Landing() {
           className="home-hero-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'minmax(300px, 0.9fr) minmax(340px, 1.1fr)',
-            gap: '28px',
+            gridTemplateColumns: 'minmax(280px, 0.86fr) minmax(320px, 1.14fr)',
+            gap: '22px',
             alignItems: 'center',
           }}
         >
@@ -377,29 +377,29 @@ export default function Landing() {
             transition={{ duration: 0.55, ease: 'easeOut' }}
             style={{
               display: 'grid',
-              gap: '24px',
-              maxWidth: '480px',
+              gap: '20px',
+              maxWidth: '440px',
             }}
           >
-            <div style={{ display: 'grid', gap: '14px' }}>
+            <div style={{ display: 'grid', gap: '12px' }}>
               <div
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
                   color: 'rgba(17,39,45,0.34)',
-                  fontSize: '1.2rem',
+                  fontSize: '1.1rem',
                   fontWeight: 800,
                   letterSpacing: '-0.04em',
                 }}
               >
-                <span style={{ fontSize: '2.9rem', lineHeight: 0.8 }}>evently</span>
+                <span style={{ fontSize: '2.5rem', lineHeight: 0.8 }}>evently</span>
                 <Sparkles size={18} strokeWidth={1.8} />
               </div>
 
               <h1
                 style={{
-                  fontSize: 'clamp(3.2rem, 7vw, 6rem)',
+                  fontSize: 'clamp(2.8rem, 6.4vw, 5rem)',
                   lineHeight: 0.95,
                   letterSpacing: '-0.06em',
                   color: 'var(--text-primary)',
@@ -424,9 +424,9 @@ export default function Landing() {
               <p
                 style={{
                   color: 'rgba(17,39,45,0.66)',
-                  fontSize: '1.08rem',
+                  fontSize: '1rem',
                   lineHeight: 1.6,
-                  maxWidth: '430px',
+                  maxWidth: '400px',
                 }}
               >
                 Set up an event page, invite attendees, and manage registrations in one clean
@@ -434,7 +434,7 @@ export default function Landing() {
               </p>
             </div>
 
-            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
               <button
                 type="button"
                 onClick={() => router.push('/create-event/continue?redirect=/create-event/form')}
@@ -491,23 +491,23 @@ const topLinkButton: React.CSSProperties = {
 
 const primaryCta: React.CSSProperties = {
   border: 'none',
-  borderRadius: '14px',
-  padding: '16px 22px',
+  borderRadius: '12px',
+  padding: '14px 18px',
   background: 'linear-gradient(135deg, var(--primary-color), var(--teal-800))',
   color: '#fff',
-  fontSize: '1rem',
-  fontWeight: 800,
+  fontSize: '0.96rem',
+  fontWeight: 700,
   cursor: 'pointer',
-  boxShadow: '0 18px 34px rgba(14,118,120,0.18)',
+  boxShadow: '0 16px 30px rgba(14,118,120,0.16)',
 };
 
 const ghostCta: React.CSSProperties = {
   border: '1px solid var(--border-color)',
-  borderRadius: '14px',
-  padding: '16px 22px',
+  borderRadius: '12px',
+  padding: '14px 18px',
   background: 'rgba(255,255,255,0.82)',
   color: 'var(--text-primary)',
-  fontSize: '1rem',
+  fontSize: '0.96rem',
   fontWeight: 700,
   cursor: 'pointer',
   boxShadow: '0 10px 26px rgba(17,39,45,0.04)',
